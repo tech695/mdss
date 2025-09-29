@@ -1,1 +1,2357 @@
-# mdss
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</title>
+<style>
+body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f2f2f2;}
+header {background:#004080; color:white; padding:10px 20px;}
+nav {background:#0066cc; overflow:hidden;}
+nav a {float:left; display:block; color:white; text-decoration:none; padding:12px 14px; font-size:14px;}
+nav a:hover {background:#004080;}
+.container {padding:20px;}
+.login-btn {float:right; background:#ffa500; border:none; color:white; padding:10px 15px; cursor:pointer;}
+.dashboard {background:white; padding:20px; margin-top:20px;}
+.dashboard h2 {margin-top:0;}
+.link-list a {display:block; padding:5px 0; color:#0066cc; text-decoration:none;}
+.link-list a:hover {text-decoration:underline;}
+footer {background:#004080; color:white; text-align:center; padding:10px; margin-top:20px;}
+.modal {display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.5);}
+.modal-content {background:#fefefe; margin:10% auto; padding:20px; border:1px solid #888; width:350px;}
+.close {color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;}
+.close:hover {color:black;}
+input[type=text], input[type=password], input[type=number], input[type=file], textarea {width:100%; padding:8px; margin:5px 0 10px 0; border:1px solid #ccc;}
+button {padding:10px 15px; background:#004080; color:white; border:none; cursor:pointer;}
+button:hover {background:#0066cc;}
+.editable {border:1px dashed #ccc; padding:5px;}
+.form-section {background:#e6f2ff; padding:15px; margin:15px 0;}
+.chatbox {background:#e6ffe6; padding:15px; margin-top:15px;}
+.map iframe {border:0;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+<button class="login-btn" id="loginBtn">Login</button>
+</header>
+
+<nav>
+<a href="#">হোম</a>
+<a href="#">প্রতিষ্ঠান</a>
+<a href="#">প্রতিষ্ঠান সম্পর্কে</a>
+<a href="#">ম্যানেজিং কমিটি</a>
+<a href="#">প্রতিষ্ঠানের পাঠদানের অনুমতি ও স্বীকৃতি</a>
+<a href="#">এমপিও ও জাতীয়করণের তথ্য</a>
+<a href="#">ভূমি ও বিল্ডিং</a>
+<a href="#">রুম সংখ্যা</a>
+<a href="#">ক্যাম্পাস ম্যাপ</a>
+<a href="#">প্রাতিষ্ঠানিক যোগ্যতা</a>
+<a href="#">বার্ষিক রিপোর্ট</a>
+<a href="#">প্রশাসনিক তথ্য</a>
+<a href="#">একাডেমিক তথ্য</a>
+<a href="#">তথ্যাবলী</a>
+<a href="#">ডাউনলোড</a>
+<a href="#">ডিজিটাল ক্যাম্পাস</a>
+<a href="#">ফটো গ্যালারি</a>
+<a href="#">ভিডিও গ্যালারি</a>
+<a href="#">যোগাযোগ</a>
+</nav>
+
+<div class="container">
+
+<!-- Quick Menu / Dashboard -->
+<div class="dashboard" id="dashboard">
+<h2>Quick Menu / Dashboard</h2>
+
+<div class="link-list">
+<h3>Google Docs / Sheets / E-book / Jessore Board</h3>
+<a href="https://docs.google.com/spreadsheets/d/1gO3THQ0uqADhQIlJcmzaK80Emr0Y_1ugUi2EyZmo8pc/edit?usp=drivesdk" target="_blank">Student List</a>
+<a href="https://docs.google.com/document/d/1acqBfwA8CuakAF1Icu8MQJ_6fjOMuwX34k_BCSz6PjA/edit?usp=drivesdk" target="_blank">বিদ্যালয়ের ইতিহাস</a>
+<a href="https://docs.google.com/spreadsheets/d/1VdudYwPcl4igyyuFsO3fN7pFxVyWh4G9z0QyAgX9yUE/edit?usp=drivesdk" target="_blank">উপবৃত্তি / বৃত্তি প্রাপ্ত শিক্ষার্থী</a>
+<a href="https://docs.google.com/spreadsheets/d/1opqV7Ktqi0fAsdEGEOGw4tCjEaZNumFhlBeFJandEpQ/edit?usp=drivesdk" target="_blank">শিক্ষক-শিক্ষিকা তালিকা</a>
+<a href="https://docs.google.com/spreadsheets/d/1YVjHJiS6zLd8XV0-U3Lk9N9jglud6whqKQZSO-maYW8/edit?usp=drivesdk" target="_blank">ম্যানেজিং কমিটি সংক্রান্ত তথ্য</a>
+<a href="https://nctb.portal.gov.bd/site/page/07ed46a6-0a64-4b75-9bd1-135e45d586bc" target="_blank">E-book</a>
+<a href="https://www.jessoreboard.gov.bd/" target="_blank">Jessore Board</a>
+<a href="https://youtu.be/_r58G5iM_NU?si=vKtc_njm0xFPCe2H" target="_blank">জাতীয় সংগীত</a>
+</div>
+
+<!-- Notification Board -->
+<div class="notification-board editable" contenteditable="false">
+<h3>Notification Board</h3>
+<p>২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।</p>
+</div>
+
+<!-- Google Map -->
+<div class="map">
+<h3>স্কুলের অবস্থান</h3>
+<iframe src="https://www.google.com/maps?q=Makhaldanga, Chuadanga, Bangladesh&output=embed" width="100%" height="300"></iframe>
+</div>
+
+<!-- Chatbox / Digital Assistant -->
+<div class="chatbox">
+<h3>Digital Assistant / Chatbox</h3>
+<p>Chat simulation placeholder (login required for full edit)</p>
+</div>
+
+<!-- Forms Section -->
+<div class="form-section">
+<h3>Student Admission Form</h3>
+<input type="text" placeholder="Student Full Name" id="studentName">
+<input type="number" placeholder="Age" id="studentAge">
+<input type="text" placeholder="Class" id="studentClass">
+<input type="text" placeholder="Birth Certificate Number" id="studentBC">
+<input type="file" id="studentPhoto">
+<input type="file" id="parentNID">
+<button onclick="submitAdmission()">Submit Admission Form</button>
+</div>
+
+<div class="form-section">
+<h3>Guardian Complaint Form</h3>
+<input type="text" placeholder="Guardian Name" id="guardianName">
+<input type="text" placeholder="Mobile No" id="guardianMobile">
+<textarea placeholder="Complaint" id="guardianComplaint"></textarea>
+<button onclick="submitGuardian()">Submit Complaint</button>
+</div>
+
+<!-- Payment/Fee placeholder -->
+<div class="form-section editable" contenteditable="false">
+<h3>বেতন/ফি তথ্য</h3>
+<p>Student ID দিয়ে Payment & Fee দেখানো হবে (Simulation)</p>
+</div>
+
+<!-- Bangladesh Emergency Hotlines -->
+<div class="form-section">
+<h3>বাংলাদেশ জরুরি হটলাইন</h3>
+<ul>
+<li>ফায়ার সার্ভিস: 998</li>
+<li>পুলিশ: 999</li>
+<li>আম্বুল্যান্স: 199</li>
+<li>ডিজাস্টার হেল্পলাইন: 1090</li>
+<li>জাতীয় হেল্পলাইন: 333</li>
+<li>ফায়ার সার্ভিস: 998</li>
+<li>পুলিশ: 999</li>
+<li>আম্বুল্যান্স: 199</li>
+<li>ডিজাস্টার হেল্পলাইন: 1090</li>
+<li>জাতীয় হেল্পলাইন: 333</li>
+<li>রোড অ্যাক্সিডেন্ট: 16021</li>
+<li>নেশা নিরাময়: 106</li>
+<li>বিজলি জরুরি: 1912</li>
+<li>গ্যাস জরুরি: 16241</li>
+<li>মিডিকেল ইমার্জেন্সি: 16263</li>
+<li>রোড অ্যাক্সিডেন্ট: 16021</li>
+<li>নেশা নিরাময়: 106</li>
+<li>বিজলি জরুরি: 1912</li>
+<li>গ্যাস জরুরি: 16241</li>
+<li>মিডিকেল ইমার্জেন্সি: 16263</li>
+</ul>
+</div>
+
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<h3>Login</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button id="loginSubmit">Login</button>
+</div>
+</div>
+
+<footer>
+<p>Thanks for visiting our website</p>
+<p>Website planned and implemented by the Head Teacher Md. Shabut Ali and all Assistant Teachers of Makhaldanga Dinanathpur Secondary School.</p>
+<p>Developed by Md Ismail Hossen</p>
+<p>Powered by Shikaloy</p>
+</footer>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const loginModal = document.getElementById('loginModal');
+const closeModal = document.querySelector('.close');
+const loginSubmit = document.getElementById('loginSubmit');
+
+loginBtn.onclick = () => { loginModal.style.display = 'block'; }
+closeModal.onclick = () => { loginModal.style.display = 'none'; }
+window.onclick = (e) => { if(e.target == loginModal) loginModal.style.display='none'; }
+
+loginSubmit.onclick = () => {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    if(user === '115363' && pass === 'v3ci29i3'){
+        alert('Login successful');
+        loginModal.style.display = 'none';
+        document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
+        loginBtn.style.display='none';
+    } else { alert('Invalid username or password'); }
+}
+
+function submitAdmission() {
+    alert('Admission form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+
+function submitGuardian() {
+    alert('Complaint form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</title>
+<style>
+body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f2f2f2;}
+header {background:#004080; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center;}
+nav {background:#0066cc; overflow:hidden;}
+nav a {float:left; display:block; color:white; text-decoration:none; padding:12px 14px; font-size:14px;}
+nav a:hover {background:#004080;}
+.container {padding:20px;}
+.login-btn {background:#ffa500; border:none; color:white; padding:10px 15px; cursor:pointer;}
+.dashboard, .section {background:white; padding:20px; margin-top:20px;}
+.dashboard h2, .section h3 {margin-top:0;}
+.link-list a {display:block; padding:5px 0; color:#0066cc; text-decoration:none;}
+.link-list a:hover {text-decoration:underline;}
+footer {background:#004080; color:white; text-align:center; padding:10px; margin-top:20px;}
+.modal {display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.5);}
+.modal-content {background:#fefefe; margin:10% auto; padding:20px; border:1px solid #888; width:350px;}
+.close {color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;}
+.close:hover {color:black;}
+input[type=text], input[type=password], input[type=number], input[type=file], textarea, select {width:100%; padding:8px; margin:5px 0 10px 0; border:1px solid #ccc;}
+button {padding:10px 15px; background:#004080; color:white; border:none; cursor:pointer;}
+button:hover {background:#0066cc;}
+.editable {border:1px dashed #ccc; padding:5px;}
+.form-section {background:#e6f2ff; padding:15px; margin:15px 0;}
+.chatbox {background:#e6ffe6; padding:15px; margin-top:15px;}
+.map iframe {border:0;}
+table {width:100%; border-collapse:collapse;}
+table, th, td {border:1px solid #ccc; padding:8px; text-align:left;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+<button class="login-btn" id="loginBtn">Login</button>
+</header>
+
+<nav>
+<a href="#">হোম</a>
+<a href="#">প্রতিষ্ঠান</a>
+<a href="#">প্রতিষ্ঠান সম্পর্কে</a>
+<a href="#">ম্যানেজিং কমিটি</a>
+<a href="#">প্রতিষ্ঠানের পাঠদানের অনুমতি ও স্বীকৃতি</a>
+<a href="#">এমপিও ও জাতীয়করণের তথ্য</a>
+<a href="#">ভূমি ও বিল্ডিং</a>
+<a href="#">রুম সংখ্যা</a>
+<a href="#">ক্যাম্পাস ম্যাপ</a>
+<a href="#">প্রাতিষ্ঠানিক যোগ্যতা</a>
+<a href="#">বার্ষিক রিপোর্ট</a>
+<a href="#">প্রশাসনিক তথ্য</a>
+<a href="#">একাডেমিক তথ্য</a>
+<a href="#">তথ্যাবলী</a>
+<a href="#">ডাউনলোড</a>
+<a href="#">ডিজিটাল ক্যাম্পাস</a>
+<a href="#">ফটো গ্যালারি</a>
+<a href="#">ভিডিও গ্যালারি</a>
+<a href="#">যোগাযোগ</a>
+</nav>
+
+<div class="container">
+
+<!-- Quick Menu / Dashboard -->
+<div class="dashboard" id="dashboard">
+<h2>Quick Menu / Dashboard</h2>
+
+<div class="link-list">
+<h3>Google Docs / Sheets / E-book / Jessore Board</h3>
+<a href="https://docs.google.com/spreadsheets/d/1gO3THQ0uqADhQIlJcmzaK80Emr0Y_1ugUi2EyZmo8pc/edit?usp=drivesdk" target="_blank">Student List</a>
+<a href="https://docs.google.com/document/d/1acqBfwA8CuakAF1Icu8MQJ_6fjOMuwX34k_BCSz6PjA/edit?usp=drivesdk" target="_blank">বিদ্যালয়ের ইতিহাস</a>
+<a href="https://docs.google.com/spreadsheets/d/1VdudYwPcl4igyyuFsO3fN7pFxVyWh4G9z0QyAgX9yUE/edit?usp=drivesdk" target="_blank">উপবৃত্তি / বৃত্তি প্রাপ্ত শিক্ষার্থী</a>
+<a href="https://docs.google.com/spreadsheets/d/1opqV7Ktqi0fAsdEGEOGw4tCjEaZNumFhlBeFJandEpQ/edit?usp=drivesdk" target="_blank">শিক্ষক-শিক্ষিকা তালিকা</a>
+<a href="https://docs.google.com/spreadsheets/d/1YVjHJiS6zLd8XV0-U3Lk9N9jglud6whqKQZSO-maYW8/edit?usp=drivesdk" target="_blank">ম্যানেজিং কমিটি সংক্রান্ত তথ্য</a>
+<a href="https://nctb.portal.gov.bd/site/page/07ed46a6-0a64-4b75-9bd1-135e45d586bc" target="_blank">E-book</a>
+<a href="https://www.jessoreboard.gov.bd/" target="_blank">Jessore Board</a>
+<a href="https://youtu.be/_r58G5iM_NU?si=vKtc_njm0xFPCe2H" target="_blank">জাতীয় সংগীত</a>
+</div>
+
+<!-- Notification Board -->
+<div class="section editable" contenteditable="false">
+<h3>Notification Board</h3>
+<p>২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।</p>
+</div>
+
+<!-- Google Map -->
+<div class="section map">
+<h3>স্কুলের অবস্থান</h3>
+<iframe src="https://www.google.com/maps?q=Makhaldanga, Chuadanga, Bangladesh&output=embed" width="100%" height="300"></iframe>
+</div>
+
+<!-- Chatbox / Digital Assistant -->
+<div class="section chatbox">
+<h3>Digital Assistant / Chatbox</h3>
+<p>Chat simulation placeholder (login required for full edit)</p>
+</div>
+
+<!-- Forms Section -->
+<div class="form-section">
+<h3>Student Admission Form</h3>
+<input type="text" placeholder="Student Full Name" id="studentName">
+<input type="number" placeholder="Age" id="studentAge">
+<input type="text" placeholder="Class" id="studentClass">
+<input type="text" placeholder="Birth Certificate Number" id="studentBC">
+<input type="file" id="studentPhoto">
+<input type="file" id="parentNID">
+<button onclick="submitAdmission()">Submit Admission Form</button>
+</div>
+
+<div class="form-section">
+<h3>Guardian Complaint Form</h3>
+<input type="text" placeholder="Guardian Name" id="guardianName">
+<input type="text" placeholder="Mobile No" id="guardianMobile">
+<textarea placeholder="Complaint" id="guardianComplaint"></textarea>
+<button onclick="submitGuardian()">Submit Complaint</button>
+</div>
+
+<!-- Payment/Fee placeholder -->
+<div class="section editable" contenteditable="false">
+<h3>বেতন/ফি তথ্য</h3>
+<p>Student ID দিয়ে Payment & Fee দেখানো হবে (Simulation)</p>
+<table>
+<tr><th>Student ID</th><th>Month</th><th>Fee (BDT)</th><th>Status</th></tr>
+<tr><td>11536301</td><td>September</td><td>1500</td><td>Paid</td></tr>
+<tr><td>11536302</td><td>September</td><td>1500</td><td>Unpaid</td></tr>
+<tr><td>11536301</td><td>October</td><td>1500</td><td>Unpaid</td></tr>
+</table>
+</div>
+
+<!-- Bangladesh 10 Emergency Hotlines -->
+<div class="section">
+<h3>বাংলাদেশ জরুরি হটলাইন</h3>
+<ul>
+<li>ফায়ার সার্ভিস: 998</li>
+<li>পুলিশ: 999</li>
+<li>আম্বুল্যান্স: 199</li>
+<li>ডিজাস্টার হেল্পলাইন: 1090</li>
+<li>জাতীয় হেল্পলাইন: 333</li>
+<li>রোড অ্যাক্সিডেন্ট: 16021</li>
+<li>নেশা নিরাময়: 106</li>
+<li>বিজলি জরুরি: 1912</li>
+<li>গ্যাস জরুরি: 16241</li>
+<li>মিডিকেল ইমার্জেন্সি: 16263</li>
+</ul>
+</div>
+
+<!-- Footer -->
+<footer>
+<p>Thanks for visiting our website</p>
+<p>Website planned and implemented by the Head Teacher Md. Shabut Ali and all Assistant Teachers of Makhaldanga Dinanathpur Secondary School.</p>
+<p>Developed by Md Ismail Hossen</p>
+<p>Powered by Shikalo</p>
+</footer>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<h3>Login</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button id="loginSubmit">Login</button>
+</div>
+</div>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const loginModal = document.getElementById('loginModal');
+const closeModal = document.querySelector('.close');
+const loginSubmit = document.getElementById('loginSubmit');
+
+loginBtn.onclick = () => { loginModal.style.display = 'block'; }
+closeModal.onclick = () => { loginModal.style.display = 'none'; }
+window.onclick = (e) => { if(e.target == loginModal) loginModal.style.display='none'; }
+
+loginSubmit.onclick = () => {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    if(user === '115363' && pass === 'v3ci29i3'){
+        alert('Login successful');
+        loginModal.style.display = 'none';
+        document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
+        loginBtn.style.display='none';
+    } else { alert('Invalid username or password'); }
+}
+
+function submitAdmission() {
+    alert('Admission form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+
+function submitGuardian() {
+    alert('Complaint form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</title>
+<style>
+body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f2f2f2;}
+header {background:#004080; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center;}
+nav {background:#0066cc; overflow:hidden;}
+nav a {float:left; display:block; color:white; text-decoration:none; padding:12px 14px; font-size:14px;}
+nav a:hover {background:#004080;}
+.container {padding:20px;}
+.login-btn, .chat-btn {background:#ffa500; border:none; color:white; padding:10px 15px; cursor:pointer; margin:5px;}
+.dashboard, .section {background:white; padding:20px; margin-top:20px;}
+.dashboard h2, .section h3 {margin-top:0;}
+.link-list a, .history-link a {display:block; padding:5px 0; color:#0066cc; text-decoration:none;}
+.link-list a:hover, .history-link a:hover {text-decoration:underline;}
+footer {background:#004080; color:white; text-align:center; padding:10px; margin-top:20px;}
+.modal {display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.5);}
+.modal-content {background:#fefefe; margin:10% auto; padding:20px; border:1px solid #888; width:350px;}
+.close {color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;}
+.close:hover {color:black;}
+input[type=text], input[type=password], input[type=number], input[type=file], textarea, select {width:100%; padding:8px; margin:5px 0 10px 0; border:1px solid #ccc;}
+button {padding:10px 15px; background:#004080; color:white; border:none; cursor:pointer;}
+button:hover {background:#0066cc;}
+.editable {border:1px dashed #ccc; padding:5px;}
+.form-section {background:#e6f2ff; padding:15px; margin:15px 0;}
+.chatbox {background:#e6ffe6; padding:15px; margin-top:15px; display:none;}
+.map iframe {border:0;}
+table {width:100%; border-collapse:collapse;}
+table, th, td {border:1px solid #ccc; padding:8px; text-align:left;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+<div>
+<button class="login-btn" id="loginBtn">Login</button>
+<button class="chat-btn" id="chatToggle">Chatbox</button>
+</div>
+</header>
+
+<nav>
+<a href="#">হোম</a>
+<a href="#">প্রতিষ্ঠান</a>
+<a href="#">প্রতিষ্ঠান সম্পর্কে</a>
+<a href="#">ম্যানেজিং কমিটি</a>
+<a href="#">প্রতিষ্ঠানের পাঠদানের অনুমতি ও স্বীকৃতি</a>
+<a href="#">এমপিও ও জাতীয়করণের তথ্য</a>
+<a href="#">ভূমি ও বিল্ডিং</a>
+<a href="#">রুম সংখ্যা</a>
+<a href="#">ক্যাম্পাস ম্যাপ</a>
+<a href="#">প্রাতিষ্ঠানিক যোগ্যতা</a>
+<a href="#">বার্ষিক রিপোর্ট</a>
+<a href="#">প্রশাসনিক তথ্য</a>
+<a href="#">একাডেমিক তথ্য</a>
+<a href="#">তথ্যাবলী</a>
+<a href="#">ডাউনলোড</a>
+<a href="#">ডিজিটাল ক্যাম্পাস</a>
+<a href="#">ফটো গ্যালারি</a>
+<a href="#">ভিডিও গ্যালারি</a>
+<a href="#">যোগাযোগ</a>
+</nav>
+
+<div class="container">
+
+<!-- Quick Menu / Dashboard -->
+<div class="dashboard" id="dashboard">
+<h2>Quick Menu / Dashboard</h2>
+
+<div class="link-list">
+<h3>Google Docs / Sheets / Jessore Board</h3>
+<a href="https://docs.google.com/spreadsheets/d/1gO3THQ0uqADhQIlJcmzaK80Emr0Y_1ugUi2EyZmo8pc/edit?usp=drivesdk" target="_blank">Student List</a>
+<a href="https://docs.google.com/spreadsheets/d/1VdudYwPcl4igyyuFsO3fN7pFxVyWh4G9z0QyAgX9yUE/edit?usp=drivesdk" target="_blank">উপবৃত্তি / বৃত্তি প্রাপ্ত শিক্ষার্থী</a>
+<a href="https://docs.google.com/spreadsheets/d/1opqV7Ktqi0fAsdEGEOGw4tCjEaZNumFhlBeFJandEpQ/edit?usp=drivesdk" target="_blank">শিক্ষক-শিক্ষিকা তালিকা</a>
+<a href="https://docs.google.com/spreadsheets/d/1YVjHJiS6zLd8XV0-U3Lk9N9jglud6whqKQZSO-maYW8/edit?usp=drivesdk" target="_blank">ম্যানেজিং কমিটি সংক্রান্ত তথ্য</a>
+<a href="https://nctb.portal.gov.bd/site/page/07ed46a6-0a64-4b75-9bd1-135e45d586bc" target="_blank">E-book</a>
+<a href="https://www.jessoreboard.gov.bd/" target="_blank">Jessore Board</a>
+<a href="https://youtu.be/_r58G5iM_NU?si=vKtc_njm0xFPCe2H" target="_blank">জাতীয় সংগীত</a>
+</div>
+
+<!-- School History -->
+<div class="history-link">
+<h3>বিদ্যালয়ের ইতিহাস</h3>
+<a href="https://docs.google.com/document/d/1acqBfwA8CuakAF1Icu8MQJ_6fjOMuwX34k_BCSz6PjA/edit?usp=drivesdk" target="_blank">বিদ্যালয়ের ইতিহাস দেখুন</a>
+</div>
+
+<!-- Notification Board -->
+<div class="section editable" contenteditable="false">
+<h3>Notification Board</h3>
+<p>২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।</p>
+</div>
+
+<!-- Google Map -->
+<div class="section map">
+<h3>স্কুলের অবস্থান</h3>
+<iframe src="https://www.google.com/maps?q=Makhaldanga, Chuadanga, Bangladesh&output=embed" width="100%" height="300"></iframe>
+</div>
+
+<!-- Chatbox -->
+<div class="section chatbox" id="chatBox">
+<h3>Digital Assistant / Chatbox</h3>
+<p>Chat simulation placeholder (login required for full edit)</p>
+</div>
+
+<!-- Forms Section -->
+<div class="form-section">
+<h3>Student Admission Form</h3>
+<input type="text" placeholder="Student Full Name" id="studentName">
+<input type="number" placeholder="Age" id="studentAge">
+<input type="text" placeholder="Class" id="studentClass">
+<input type="text" placeholder="Birth Certificate Number" id="studentBC">
+<input type="file" id="studentPhoto">
+<input type="file" id="parentNID">
+<button onclick="submitAdmission()">Submit Admission Form</button>
+</div>
+
+<div class="form-section">
+<h3>Guardian Complaint Form</h3>
+<input type="text" placeholder="Guardian Name" id="guardianName">
+<input type="text" placeholder="Mobile No" id="guardianMobile">
+<textarea placeholder="Complaint" id="guardianComplaint"></textarea>
+<button onclick="submitGuardian()">Submit Complaint</button>
+</div>
+
+<!-- Footer -->
+<footer>
+<p>Thanks for visiting our website</p>
+<p>Website planned and implemented by the Head Teacher Md. Shabut Ali and all Assistant Teachers of Makhaldanga Dinanathpur Secondary School.</p>
+<p>Developed by Md Ismail Hossen</p>
+<p>Powered by Shikaloy</p>
+</footer>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<h3>Login</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button id="loginSubmit">Login</button>
+</div>
+</div>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const chatToggle = document.getElementById('chatToggle');
+const chatBox = document.getElementById('chatBox');
+const loginModal = document.getElementById('loginModal');
+const closeModal = document.querySelector('.close');
+const loginSubmit = document.getElementById('loginSubmit');
+
+loginBtn.onclick = () => { loginModal.style.display = 'block'; }
+closeModal.onclick = () => { loginModal.style.display = 'none'; }
+window.onclick = (e) => { if(e.target == loginModal) loginModal.style.display='none'; }
+
+loginSubmit.onclick = () => {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    if(user === '115363' && pass === 'v3ci29i3'){
+        alert('Login successful');
+        loginModal.style.display = 'none';
+        document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
+        loginBtn.style.display='none';
+    } else { alert('Invalid username or password'); }
+}
+
+// Chatbox toggle
+chatToggle.onclick = () => {
+    if(chatBox.style.display === 'none' || chatBox.style.display === ''){
+        chatBox.style.display = 'block';
+    } else { chatBox.style.display = 'none'; }
+}
+
+function submitAdmission() {
+    alert('Admission form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+
+function submitGuardian() {
+    alert('Complaint form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+</script>
+
+</body>
+</html><!-- Notification Board Section -->
+<div class="section">
+<h3>চলমান নোটিশ বোর্ড</h3>
+<marquee behavior="scroll" direction="left" id="noticeMarquee">
+২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।
+</marquee>
+</div>
+
+<script>
+// Editable Notices after login simulation
+const notices = [
+    "২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।",
+    "নতুন পাঠ্যক্রম প্রবর্তন করা হয়েছে। শিক্ষার্থীরা অবগত হোক।",
+    "বার্ষিক ক্রীড়া প্রতিযোগিতা ১৫ অক্টোবর ২০২৫ অনুষ্ঠিত হবে।"
+];
+
+function updateNotice(index) {
+    if(index >= 0 && index < notices.length){
+        document.getElementById('noticeMarquee').innerText = notices[index];
+    }
+}
+
+// Login simulation editable
+function loginForNotices(user, pass){
+    if(user === '115363' && pass === 'v3ci29i3'){
+        alert('Login successful - Now you can edit notices');
+        let newNotice = prompt("Add new notice for the board:");
+        if(newNotice){
+            notices.push(newNotice);
+            document.getElementById('noticeMarquee').innerText = newNotice;
+        }
+    } else {
+        alert('Invalid credentials');
+    }
+}
+
+// Always visible - even without login
+// Example: loginForNotices('115363', 'v3ci29i3'); only for editing<!-- School History Section -->
+<section id="schoolHistory" class="section">
+    <h2>মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয়ের ইতিহাস</h2>
+    <p>
+        মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয়টি ১৯৮৯ সালে প্রতিষ্ঠিত হয়। 
+        প্রতিষ্ঠার মূল উদ্দেশ্য ছিল গ্রামের শিক্ষার্থীদের মানসম্মত শিক্ষা প্রদান করা এবং 
+        তাদের সার্বিক বিকাশে সহায়তা করা। বিদ্যালয়টি প্রতিষ্ঠায় এলাকার গণ্যমান্য ব্যক্তি 
+        ও সাধারণ গ্রামের মানুষের অবদান ছিল গুরুত্বপূর্ণ। তারা চিত্তশক্তি, অর্থ এবং সময় 
+        ব্যয় করে বিদ্যালয়ের জন্য জমি সংগ্রহ, ভবন নির্মাণ এবং প্রাথমিক শিক্ষার জন্য 
+        প্রয়োজনীয় সুবিধা প্রদান করেছিলেন।
+    </p>
+    <p>
+        বিদ্যালয়টি প্রতিষ্ঠার পর থেকে স্থানীয় শিক্ষার্থীদের জন্য শিক্ষা প্রসারের একটি কেন্দ্র 
+        হিসেবে কাজ করে আসছে। নিয়মিত পাঠদান, শিক্ষামূলক কার্যক্রম এবং বিভিন্ন সাংস্কৃতিক 
+        অনুষ্ঠান বিদ্যালয়টিকে শিক্ষার পাশাপাশি শিক্ষার্থীদের চারিত্রিক বিকাশের ক্ষেত্রেও 
+        উল্লেখযোগ্য অবদান রাখতে সাহায্য করেছে।
+    </p>
+    <p>
+        বর্তমানে মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয় একটি সুপ্রতিষ্ঠিত শিক্ষা প্রতিষ্ঠান 
+        হিসেবে পরিচিত, যা শিক্ষার মান রক্ষা করার পাশাপাশি সমাজের উন্নয়নে গুরুত্বপূর্ণ 
+        ভূমিকা পালন করে আসছে।
+    </p>
+</section><!-- School History Section -->
+<section id="schoolHistory" class="section">
+    <h2>মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয়ের ইতিহাস</h2>
+    <p>
+        মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয়টি ১৯৮৯ সালে প্রতিষ্ঠিত হয়। 
+        প্রতিষ্ঠার মূল উদ্দেশ্য ছিল গ্রামের শিক্ষার্থীদের মানসম্মত শিক্ষা প্রদান করা এবং 
+        তাদের সার্বিক বিকাশে সহায়তা করা। বিদ্যালয়টি প্রতিষ্ঠায় এলাকার গণ্যমান্য ব্যক্তি 
+        ও সাধারণ গ্রামের মানুষের অবদান ছিল গুরুত্বপূর্ণ। তারা চিত্তশক্তি, অর্থ এবং সময় 
+        ব্যয় করে বিদ্যালয়ের জন্য জমি সংগ্রহ, ভবন নির্মাণ এবং প্রাথমিক শিক্ষার জন্য 
+        প্রয়োজনীয় সুবিধা প্রদান করেছিলেন।
+    </p>
+    <p>
+        বিদ্যালয়টি প্রতিষ্ঠার পর থেকে স্থানীয় শিক্ষার্থীদের জন্য শিক্ষা প্রসারের একটি কেন্দ্র 
+        হিসেবে কাজ করে আসছে। নিয়মিত পাঠদান, শিক্ষামূলক কার্যক্রম এবং বিভিন্ন সাংস্কৃতিক 
+        অনুষ্ঠান বিদ্যালয়টিকে শিক্ষার পাশাপাশি শিক্ষার্থীদের চারিত্রিক বিকাশের ক্ষেত্রেও 
+        উল্লেখযোগ্য অবদান রাখতে সাহায্য করেছে।
+    </p>
+    <p>
+        বর্তমানে মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয় একটি সুপ্রতিষ্ঠিত শিক্ষা প্রতিষ্ঠান 
+        হিসেবে পরিচিত, যা শিক্ষার মান রক্ষা করার পাশাপাশি সমাজের উন্নয়নে গুরুত্বপূর্ণ 
+        ভূমিকা পালন করে আসছে।
+    </p>
+</section><!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</title>
+<style>
+  body{font-family:"Noto Sans Bengali",Arial,sans-serif;margin:0;background:#f8f9fa;color:#222}
+  header{background:#00509e;color:#fff;padding:15px;text-align:center}
+  header h1,header p{margin:3px 0}
+  nav{background:#023e8a}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+  nav ul li{position:relative}
+  nav ul li a{display:block;padding:12px 20px;color:#fff;text-decoration:none}
+  nav ul li:hover{background:#0077b6}
+  nav ul li ul{display:none;position:absolute;top:100%;left:0;background:#0096c7;padding:0;z-index:1000}
+  nav ul li:hover ul{display:block}
+  nav ul li ul li{width:220px}
+  section{padding:20px;background:#fff;margin:15px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+  footer{background:#00509e;color:#fff;text-align:center;padding:10px;margin-top:20px}
+  .notice-board{background:#fff3cd;border:1px solid #ffeeba;padding:10px;border-radius:5px}
+  .login-box,.dashboard{background:#e9ecef;padding:15px;margin:20px;border-radius:8px}
+  input,button,textarea{padding:8px;margin:5px 0;width:100%}
+  #clock{font-size:18px;font-weight:bold;color:#fff}
+  #chatButton{position:fixed;bottom:20px;right:20px;background:#0077b6;color:white;border:none;padding:12px 18px;border-radius:50%;cursor:pointer;font-size:20px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+  #chatWindow{display:none;position:fixed;bottom:70px;right:20px;width:300px;background:white;border:1px solid #ccc;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);padding:10px}
+  #chatWindow h4{margin:0 0 10px;background:#0077b6;color:white;padding:8px;border-radius:5px}
+</style>
+</head>
+<body>
+
+<header>
+<h1 contenteditable="true" id="schoolName">মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+<p contenteditable="true" id="schoolSub">Makhaldanga Dinnathpur Secondary School</p>
+<p>EIIN: 115363 | মোবাইল: 01309115363 | ইমেইল: sss115363@gmail.com</p>
+<div id="clock"></div>
+</header>
+
+<nav>
+<ul>
+<li><a href="#">প্রতিষ্ঠান সম্পর্কিত</a>
+  <ul>
+    <li>প্রতিষ্ঠান সম্পর্কে</li>
+    <li>ম্যানেজিং কমিটি</li>
+    <li>প্রতিষ্ঠানের অনুমতি ও স্বীকৃতি</li>
+    <li>এমপিও ও জাতীয়করণ</li>
+    <li>ভূমি/বিল্ডিং এবং রুম সংখ্যা</li>
+    <li>ক্যাম্পাস ম্যাপ</li>
+    <li>প্রাতিষ্ঠানিক যোগ্যতা</li>
+    <li>এনুয়াল রিপোর্ট</li>
+  </ul>
+</li>
+<li><a href="#">প্রশাসনিক তথ্য</a>
+  <ul>
+    <li>প্রধানশিক্ষকের তালিকা</li>
+    <li>শিক্ষক-শিক্ষিকাদের তালিকা</li>
+    <li>কর্মচারীদের তালিকা</li>
+    <li>প্রাক্তন শিক্ষক-শিক্ষিকার তালিকা</li>
+    <li>শিক্ষক-কর্মচারী কল্যাণ তহবিল</li>
+    <li>শিক্ষক পরিষদের তথ্য</li>
+    <li>অর্নার বোর্ড</li>
+    <li>প্রতিষ্ঠাতা এবং দানকারীর তথ্য</li>
+  </ul>
+</li>
+<li><a href="#">একাডেমিক তথ্য</a></li>
+<li><a href="#">তথ্যাবলী</a></li>
+<li><a href="#">ডাউনলোড</a></li>
+<li><a href="#">ডিজিটাল ক্যাম্পাস</a></li>
+<li><a href="#">ফটো গ্যালারী</a></li>
+<li><a href="#">ভিডিও গ্যালারী</a></li>
+<li><a href="#">যোগাযোগ</a></li>
+<li><a href="#" id="loginBtn">Login</a></li>
+</ul>
+</nav>
+
+<section>
+<h2>নোটিশ বোর্ড</h2>
+<div class="notice-board">
+<marquee behavior="scroll" direction="up" height="120px">
+📢 ভর্তি ফরম বিতরণ শীঘ্রই<br><br>
+📢 বার্ষিক ক্রীড়া প্রতিযোগিতা আগামী মাসে অনুষ্ঠিত হবে
+</marquee>
+</div>
+</section>
+
+<section>
+<h2>জাতীয় সংগীত</h2>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/_r58G5iM_NU?si=XwM_B0enEihs-tBB" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<section>
+<h2>আমাদের সাথে যুক্ত হন</h2>
+<p>
+<a href="https://www.facebook.com/makhaladanga.dinanathapura.madhyah.bidyalaya" target="_blank">📘 Facebook পেজ</a> |
+<a href="https://www.youtube.com/" target="_blank">▶️ YouTube চ্যানেল</a>
+</p>
+</section>
+
+<section>
+<h2>আমাদের অবস্থান</h2>
+<iframe src="https://www.google.com/maps?q=HRXR+85F,Shankarchandra&output=embed" width="100%" height="300" style="border:0;" allowfullscreen></iframe>
+</section>
+
+<section>
+<h2>অভিভাবক বক্স</h2>
+<form action="mailto:sss115363@gmail.com" method="post" enctype="text/plain">
+<input type="text" name="name" placeholder="অভিভাবকের নাম" required>
+<input type="text" name="address" placeholder="ঠিকানা" required>
+<input type="text" name="mobile" placeholder="মোবাইল নম্বর" required>
+<textarea name="message" placeholder="অভিযোগ / বার্তা" required></textarea>
+<button type="submit">পাঠান</button>
+</form>
+</section>
+
+<section class="login-box" id="loginBox" style="display:none;">
+<h3>অ্যাডমিন লগইন</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button id="loginSubmit">Login</button>
+<small>Demo: username = <b>115363</b>, password = <b>v3ci29i3</b></small>
+</section>
+
+<section class="dashboard" id="dashboard" style="display:none;">
+<h3>Dashboard / Quick Menu</h3>
+<ul>
+<li>অনলাইন ভর্তি</li>
+<li>বেতন/ফি পরিশোধ</li>
+<li>শিক্ষক তালিকা</li>
+<li>ছাত্র-ছাত্রীর তালিকা</li>
+<li>নোটিশ</li>
+<li>ফলাফল</li>
+<li>ক্লাস রুটিন</li>
+<li>পরীক্ষার রুটিন</li>
+<li>অভিভাবক বক্স</li>
+</ul>
+</section>
+
+<footer>
+<p>&copy; 2025 মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয় | Powered by Shikalo | Developed by Md Ismail Hossen</p>
+<p>School History: প্রতিষ্ঠার ইতিহাস এবং অবদান …</p>
+</footer>
+
+<button id="chatButton">💬</button>
+<div id="chatWindow">
+<h4>হেল্প ডেস্ক</h4>
+<p>স্বাগতম! 👋 এখানে আপনার প্রশ্ন লিখুন।</p>
+<textarea placeholder="আপনার প্রশ্ন লিখুন..."></textarea>
+<button>Send</button>
+</div>
+
+<script>
+function updateClock(){
+const now=new Date();
+document.getElementById("clock").innerText=now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+document.getElementById("chatButton").onclick=function(){
+const chat=document.getElementById("chatWindow");
+chat.style.display=(chat.style.display==="block")?"none":"block";
+};
+
+const loginBtn=document.getElementById("loginBtn");
+const loginBox=document.getElementById("loginBox");
+const loginSubmit=document.getElementById("loginSubmit");
+const dashboard=document.getElementById("dashboard");
+
+loginBtn.onclick=function(){loginBox.style.display="block";}
+loginSubmit.onclick=function(){
+const user=document.getElementById("username").value;
+const pass=document.getElementById("password").value;
+if(user==="115363" && pass==="v3ci29i3"){
+alert("Login Successful! Now you can edit content.");
+document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable','true'));
+loginBox.style.display="none";
+dashboard.style.display="block";
+}else{alert("Invalid credentials!");}
+}
+</script><!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</title>
+<style>
+body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f2f2f2;}
+header {background:#004080; color:white; padding:10px 20px;}
+nav {background:#0066cc; overflow:hidden;}
+nav a {float:left; display:block; color:white; text-decoration:none; padding:12px 14px; font-size:14px;}
+nav a:hover {background:#004080;}
+.container {padding:20px;}
+.login-btn {float:right; background:#ffa500; border:none; color:white; padding:10px 15px; cursor:pointer;}
+.dashboard {background:white; padding:20px; margin-top:20px;}
+.dashboard h2 {margin-top:0;}
+.link-list a {display:block; padding:5px 0; color:#0066cc; text-decoration:none;}
+.link-list a:hover {text-decoration:underline;}
+footer {background:#004080; color:white; text-align:center; padding:10px; margin-top:20px;}
+.modal {display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.5);}
+.modal-content {background:#fefefe; margin:10% auto; padding:20px; border:1px solid #888; width:350px;}
+.close {color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;}
+.close:hover {color:black;}
+input[type=text], input[type=password], input[type=number], input[type=file], textarea {width:100%; padding:8px; margin:5px 0 10px 0; border:1px solid #ccc;}
+button {padding:10px 15px; background:#004080; color:white; border:none; cursor:pointer;}
+button:hover {background:#0066cc;}
+.editable {border:1px dashed #ccc; padding:5px;}
+.form-section {background:#e6f2ff; padding:15px; margin:15px 0;}
+.chatbox {background:#e6ffe6; padding:15px; margin-top:15px;}
+.map iframe {border:0;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+<button class="login-btn" id="loginBtn">Login</button>
+</header>
+
+<nav>
+<a href="#">হোম</a>
+<a href="#">প্রতিষ্ঠান</a>
+<a href="#">প্রতিষ্ঠান সম্পর্কে</a>
+<a href="#">ম্যানেজিং কমিটি</a>
+<a href="#">প্রতিষ্ঠানের পাঠদানের অনুমতি ও স্বীকৃতি</a>
+<a href="#">এমপিও ও জাতীয়করণের তথ্য</a>
+<a href="#">ভূমি ও বিল্ডিং</a>
+<a href="#">রুম সংখ্যা</a>
+<a href="#">ক্যাম্পাস ম্যাপ</a>
+<a href="#">প্রাতিষ্ঠানিক যোগ্যতা</a>
+<a href="#">বার্ষিক রিপোর্ট</a>
+<a href="#">প্রশাসনিক তথ্য</a>
+<a href="#">একাডেমিক তথ্য</a>
+<a href="#">তথ্যাবলী</a>
+<a href="#">ডাউনলোড</a>
+<a href="#">ডিজিটাল ক্যাম্পাস</a>
+<a href="#">ফটো গ্যালারি</a>
+<a href="#">ভিডিও গ্যালারি</a>
+<a href="#">যোগাযোগ</a>
+</nav>
+
+<div class="container">
+
+<!-- Quick Menu / Dashboard -->
+<div class="dashboard" id="dashboard">
+<h2>Quick Menu / Dashboard</h2>
+
+<div class="link-list">
+<h3>Google Docs / Sheets / E-book / Jessore Board</h3>
+<a href="https://docs.google.com/spreadsheets/d/1gO3THQ0uqADhQIlJcmzaK80Emr0Y_1ugUi2EyZmo8pc/edit?usp=drivesdk" target="_blank">Student List</a>
+<a href="https://docs.google.com/document/d/1acqBfwA8CuakAF1Icu8MQJ_6fjOMuwX34k_BCSz6PjA/edit?usp=drivesdk" target="_blank">বিদ্যালয়ের ইতিহাস</a>
+<a href="https://docs.google.com/spreadsheets/d/1VdudYwPcl4igyyuFsO3fN7pFxVyWh4G9z0QyAgX9yUE/edit?usp=drivesdk" target="_blank">উপবৃত্তি / বৃত্তি প্রাপ্ত শিক্ষার্থী</a>
+<a href="https://docs.google.com/spreadsheets/d/1opqV7Ktqi0fAsdEGEOGw4tCjEaZNumFhlBeFJandEpQ/edit?usp=drivesdk" target="_blank">শিক্ষক-শিক্ষিকা তালিকা</a>
+<a href="https://docs.google.com/spreadsheets/d/1YVjHJiS6zLd8XV0-U3Lk9N9jglud6whqKQZSO-maYW8/edit?usp=drivesdk" target="_blank">ম্যানেজিং কমিটি সংক্রান্ত তথ্য</a>
+<a href="https://nctb.portal.gov.bd/site/page/07ed46a6-0a64-4b75-9bd1-135e45d586bc" target="_blank">E-book</a>
+<a href="https://www.jessoreboard.gov.bd/" target="_blank">Jessore Board</a>
+<a href="https://youtu.be/_r58G5iM_NU?si=vKtc_njm0xFPCe2H" target="_blank">জাতীয় সংগীত</a>
+</div>
+
+<!-- Notification Board -->
+<div class="notification-board editable" contenteditable="false">
+<h3>Notification Board</h3>
+<p>২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।</p>
+</div>
+
+<!-- Google Map -->
+<div class="map">
+<h3>স্কুলের অবস্থান</h3>
+<iframe src="https://www.google.com/maps?q=Makhaldanga, Chuadanga, Bangladesh&output=embed" width="100%" height="300"></iframe>
+</div>
+
+<!-- Chatbox / Digital Assistant -->
+<div class="chatbox">
+<h3>Digital Assistant / Chatbox</h3>
+<p>Chat simulation placeholder (login required for full edit)</p>
+</div>
+
+<!-- Forms Section -->
+<div class="form-section">
+<h3>Student Admission Form</h3>
+<input type="text" placeholder="Student Full Name" id="studentName">
+<input type="number" placeholder="Age" id="studentAge">
+<input type="text" placeholder="Class" id="studentClass">
+<input type="text" placeholder="Birth Certificate Number" id="studentBC">
+<input type="file" id="studentPhoto">
+<input type="file" id="parentNID">
+<button onclick="submitAdmission()">Submit Admission Form</button>
+</div>
+
+<div class="form-section">
+<h3>Guardian Complaint Form</h3>
+<input type="text" placeholder="Guardian Name" id="guardianName">
+<input type="text" placeholder="Mobile No" id="guardianMobile">
+<textarea placeholder="Complaint" id="guardianComplaint"></textarea>
+<button onclick="submitGuardian()">Submit Complaint</button>
+</div>
+
+<!-- Payment/Fee placeholder -->
+<div class="form-section editable" contenteditable="false">
+<h3>বেতন/ফি তথ্য</h3>
+<p>Student ID দিয়ে Payment & Fee দেখানো হবে (Simulation)</p>
+</div>
+
+<!-- Bangladesh Emergency Hotlines -->
+<div class="form-section">
+<h3>বাংলাদেশ জরুরি হটলাইন</h3>
+<ul>
+<li>ফায়ার সার্ভিস: 998</li>
+<li>পুলিশ: 999</li>
+<li>আম্বুল্যান্স: 199</li>
+<li>ডিজাস্টার হেল্পলাইন: 1090</li>
+<li>জাতীয় হেল্পলাইন: 333</li>
+<li>ফায়ার সার্ভিস: 998</li>
+<li>পুলিশ: 999</li>
+<li>আম্বুল্যান্স: 199</li>
+<li>ডিজাস্টার হেল্পলাইন: 1090</li>
+<li>জাতীয় হেল্পলাইন: 333</li>
+<li>রোড অ্যাক্সিডেন্ট: 16021</li>
+<li>নেশা নিরাময়: 106</li>
+<li>বিজলি জরুরি: 1912</li>
+<li>গ্যাস জরুরি: 16241</li>
+<li>মিডিকেল ইমার্জেন্সি: 16263</li>
+<li>রোড অ্যাক্সিডেন্ট: 16021</li>
+<li>নেশা নিরাময়: 106</li>
+<li>বিজলি জরুরি: 1912</li>
+<li>গ্যাস জরুরি: 16241</li>
+<li>মিডিকেল ইমার্জেন্সি: 16263</li>
+</ul>
+</div>
+
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<h3>Login</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button id="loginSubmit">Login</button>
+</div>
+</div>
+
+<footer>
+<p>Thanks for visiting our website</p>
+<p>Website planned and implemented by the Head Teacher Md. Shabut Ali and all Assistant Teachers of Makhaldanga Dinanathpur Secondary School.</p>
+<p>Developed by Md Ismail Hossen</p>
+<p>Powered by Shikaloy</p>
+</footer>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const loginModal = document.getElementById('loginModal');
+const closeModal = document.querySelector('.close');
+const loginSubmit = document.getElementById('loginSubmit');
+
+loginBtn.onclick = () => { loginModal.style.display = 'block'; }
+closeModal.onclick = () => { loginModal.style.display = 'none'; }
+window.onclick = (e) => { if(e.target == loginModal) loginModal.style.display='none'; }
+
+loginSubmit.onclick = () => {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    if(user === '115363' && pass === 'v3ci29i3'){
+        alert('Login successful');
+        loginModal.style.display = 'none';
+        document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
+        loginBtn.style.display='none';
+    } else { alert('Invalid username or password'); }
+}
+
+function submitAdmission() {
+    alert('Admission form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+
+function submitGuardian() {
+    alert('Complaint form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</title>
+<style>
+body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f2f2f2;}
+header {background:#004080; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center;}
+nav {background:#0066cc; overflow:hidden;}
+nav a {float:left; display:block; color:white; text-decoration:none; padding:12px 14px; font-size:14px;}
+nav a:hover {background:#004080;}
+.container {padding:20px;}
+.login-btn {background:#ffa500; border:none; color:white; padding:10px 15px; cursor:pointer;}
+.dashboard, .section {background:white; padding:20px; margin-top:20px;}
+.dashboard h2, .section h3 {margin-top:0;}
+.link-list a {display:block; padding:5px 0; color:#0066cc; text-decoration:none;}
+.link-list a:hover {text-decoration:underline;}
+footer {background:#004080; color:white; text-align:center; padding:10px; margin-top:20px;}
+.modal {display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.5);}
+.modal-content {background:#fefefe; margin:10% auto; padding:20px; border:1px solid #888; width:350px;}
+.close {color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;}
+.close:hover {color:black;}
+input[type=text], input[type=password], input[type=number], input[type=file], textarea, select {width:100%; padding:8px; margin:5px 0 10px 0; border:1px solid #ccc;}
+button {padding:10px 15px; background:#004080; color:white; border:none; cursor:pointer;}
+button:hover {background:#0066cc;}
+.editable {border:1px dashed #ccc; padding:5px;}
+.form-section {background:#e6f2ff; padding:15px; margin:15px 0;}
+.chatbox {background:#e6ffe6; padding:15px; margin-top:15px;}
+.map iframe {border:0;}
+table {width:100%; border-collapse:collapse;}
+table, th, td {border:1px solid #ccc; padding:8px; text-align:left;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+<button class="login-btn" id="loginBtn">Login</button>
+</header>
+
+<nav>
+<a href="#">হোম</a>
+<a href="#">প্রতিষ্ঠান</a>
+<a href="#">প্রতিষ্ঠান সম্পর্কে</a>
+<a href="#">ম্যানেজিং কমিটি</a>
+<a href="#">প্রতিষ্ঠানের পাঠদানের অনুমতি ও স্বীকৃতি</a>
+<a href="#">এমপিও ও জাতীয়করণের তথ্য</a>
+<a href="#">ভূমি ও বিল্ডিং</a>
+<a href="#">রুম সংখ্যা</a>
+<a href="#">ক্যাম্পাস ম্যাপ</a>
+<a href="#">প্রাতিষ্ঠানিক যোগ্যতা</a>
+<a href="#">বার্ষিক রিপোর্ট</a>
+<a href="#">প্রশাসনিক তথ্য</a>
+<a href="#">একাডেমিক তথ্য</a>
+<a href="#">তথ্যাবলী</a>
+<a href="#">ডাউনলোড</a>
+<a href="#">ডিজিটাল ক্যাম্পাস</a>
+<a href="#">ফটো গ্যালারি</a>
+<a href="#">ভিডিও গ্যালারি</a>
+<a href="#">যোগাযোগ</a>
+</nav>
+
+<div class="container">
+
+<!-- Quick Menu / Dashboard -->
+<div class="dashboard" id="dashboard">
+<h2>Quick Menu / Dashboard</h2>
+
+<div class="link-list">
+<h3>Google Docs / Sheets / E-book / Jessore Board</h3>
+<a href="https://docs.google.com/spreadsheets/d/1gO3THQ0uqADhQIlJcmzaK80Emr0Y_1ugUi2EyZmo8pc/edit?usp=drivesdk" target="_blank">Student List</a>
+<a href="https://docs.google.com/document/d/1acqBfwA8CuakAF1Icu8MQJ_6fjOMuwX34k_BCSz6PjA/edit?usp=drivesdk" target="_blank">বিদ্যালয়ের ইতিহাস</a>
+<a href="https://docs.google.com/spreadsheets/d/1VdudYwPcl4igyyuFsO3fN7pFxVyWh4G9z0QyAgX9yUE/edit?usp=drivesdk" target="_blank">উপবৃত্তি / বৃত্তি প্রাপ্ত শিক্ষার্থী</a>
+<a href="https://docs.google.com/spreadsheets/d/1opqV7Ktqi0fAsdEGEOGw4tCjEaZNumFhlBeFJandEpQ/edit?usp=drivesdk" target="_blank">শিক্ষক-শিক্ষিকা তালিকা</a>
+<a href="https://docs.google.com/spreadsheets/d/1YVjHJiS6zLd8XV0-U3Lk9N9jglud6whqKQZSO-maYW8/edit?usp=drivesdk" target="_blank">ম্যানেজিং কমিটি সংক্রান্ত তথ্য</a>
+<a href="https://nctb.portal.gov.bd/site/page/07ed46a6-0a64-4b75-9bd1-135e45d586bc" target="_blank">E-book</a>
+<a href="https://www.jessoreboard.gov.bd/" target="_blank">Jessore Board</a>
+<a href="https://youtu.be/_r58G5iM_NU?si=vKtc_njm0xFPCe2H" target="_blank">জাতীয় সংগীত</a>
+</div>
+
+<!-- Notification Board -->
+<div class="section editable" contenteditable="false">
+<h3>Notification Board</h3>
+<p>২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।</p>
+</div>
+
+<!-- Google Map -->
+<div class="section map">
+<h3>স্কুলের অবস্থান</h3>
+<iframe src="https://www.google.com/maps?q=Makhaldanga, Chuadanga, Bangladesh&output=embed" width="100%" height="300"></iframe>
+</div>
+
+<!-- Chatbox / Digital Assistant -->
+<div class="section chatbox">
+<h3>Digital Assistant / Chatbox</h3>
+<p>Chat simulation placeholder (login required for full edit)</p>
+</div>
+
+<!-- Forms Section -->
+<div class="form-section">
+<h3>Student Admission Form</h3>
+<input type="text" placeholder="Student Full Name" id="studentName">
+<input type="number" placeholder="Age" id="studentAge">
+<input type="text" placeholder="Class" id="studentClass">
+<input type="text" placeholder="Birth Certificate Number" id="studentBC">
+<input type="file" id="studentPhoto">
+<input type="file" id="parentNID">
+<button onclick="submitAdmission()">Submit Admission Form</button>
+</div>
+
+<div class="form-section">
+<h3>Guardian Complaint Form</h3>
+<input type="text" placeholder="Guardian Name" id="guardianName">
+<input type="text" placeholder="Mobile No" id="guardianMobile">
+<textarea placeholder="Complaint" id="guardianComplaint"></textarea>
+<button onclick="submitGuardian()">Submit Complaint</button>
+</div>
+
+<!-- Payment/Fee placeholder -->
+<div class="section editable" contenteditable="false">
+<h3>বেতন/ফি তথ্য</h3>
+<p>Student ID দিয়ে Payment & Fee দেখানো হবে (Simulation)</p>
+<table>
+<tr><th>Student ID</th><th>Month</th><th>Fee (BDT)</th><th>Status</th></tr>
+<tr><td>11536301</td><td>September</td><td>1500</td><td>Paid</td></tr>
+<tr><td>11536302</td><td>September</td><td>1500</td><td>Unpaid</td></tr>
+<tr><td>11536301</td><td>October</td><td>1500</td><td>Unpaid</td></tr>
+</table>
+</div>
+
+<!-- Bangladesh 10 Emergency Hotlines -->
+<div class="section">
+<h3>বাংলাদেশ জরুরি হটলাইন</h3>
+<ul>
+<li>ফায়ার সার্ভিস: 998</li>
+<li>পুলিশ: 999</li>
+<li>আম্বুল্যান্স: 199</li>
+<li>ডিজাস্টার হেল্পলাইন: 1090</li>
+<li>জাতীয় হেল্পলাইন: 333</li>
+<li>রোড অ্যাক্সিডেন্ট: 16021</li>
+<li>নেশা নিরাময়: 106</li>
+<li>বিজলি জরুরি: 1912</li>
+<li>গ্যাস জরুরি: 16241</li>
+<li>মিডিকেল ইমার্জেন্সি: 16263</li>
+</ul>
+</div>
+
+<!-- Footer -->
+<footer>
+<p>Thanks for visiting our website</p>
+<p>Website planned and implemented by the Head Teacher Md. Shabut Ali and all Assistant Teachers of Makhaldanga Dinanathpur Secondary School.</p>
+<p>Developed by Md Ismail Hossen</p>
+<p>Powered by Shikalo</p>
+</footer>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<h3>Login</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button id="loginSubmit">Login</button>
+</div>
+</div>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const loginModal = document.getElementById('loginModal');
+const closeModal = document.querySelector('.close');
+const loginSubmit = document.getElementById('loginSubmit');
+
+loginBtn.onclick = () => { loginModal.style.display = 'block'; }
+closeModal.onclick = () => { loginModal.style.display = 'none'; }
+window.onclick = (e) => { if(e.target == loginModal) loginModal.style.display='none'; }
+
+loginSubmit.onclick = () => {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    if(user === '115363' && pass === 'v3ci29i3'){
+        alert('Login successful');
+        loginModal.style.display = 'none';
+        document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
+        loginBtn.style.display='none';
+    } else { alert('Invalid username or password'); }
+}
+
+function submitAdmission() {
+    alert('Admission form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+
+function submitGuardian() {
+    alert('Complaint form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</title>
+<style>
+body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f2f2f2;}
+header {background:#004080; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center;}
+nav {background:#0066cc; overflow:hidden;}
+nav a {float:left; display:block; color:white; text-decoration:none; padding:12px 14px; font-size:14px;}
+nav a:hover {background:#004080;}
+.container {padding:20px;}
+.login-btn, .chat-btn {background:#ffa500; border:none; color:white; padding:10px 15px; cursor:pointer; margin:5px;}
+.dashboard, .section {background:white; padding:20px; margin-top:20px;}
+.dashboard h2, .section h3 {margin-top:0;}
+.link-list a, .history-link a {display:block; padding:5px 0; color:#0066cc; text-decoration:none;}
+.link-list a:hover, .history-link a:hover {text-decoration:underline;}
+footer {background:#004080; color:white; text-align:center; padding:10px; margin-top:20px;}
+.modal {display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.5);}
+.modal-content {background:#fefefe; margin:10% auto; padding:20px; border:1px solid #888; width:350px;}
+.close {color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;}
+.close:hover {color:black;}
+input[type=text], input[type=password], input[type=number], input[type=file], textarea, select {width:100%; padding:8px; margin:5px 0 10px 0; border:1px solid #ccc;}
+button {padding:10px 15px; background:#004080; color:white; border:none; cursor:pointer;}
+button:hover {background:#0066cc;}
+.editable {border:1px dashed #ccc; padding:5px;}
+.form-section {background:#e6f2ff; padding:15px; margin:15px 0;}
+.chatbox {background:#e6ffe6; padding:15px; margin-top:15px; display:none;}
+.map iframe {border:0;}
+table {width:100%; border-collapse:collapse;}
+table, th, td {border:1px solid #ccc; padding:8px; text-align:left;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>মাখালডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+<div>
+<button class="login-btn" id="loginBtn">Login</button>
+<button class="chat-btn" id="chatToggle">Chatbox</button>
+</div>
+</header>
+
+<nav>
+<a href="#">হোম</a>
+<a href="#">প্রতিষ্ঠান</a>
+<a href="#">প্রতিষ্ঠান সম্পর্কে</a>
+<a href="#">ম্যানেজিং কমিটি</a>
+<a href="#">প্রতিষ্ঠানের পাঠদানের অনুমতি ও স্বীকৃতি</a>
+<a href="#">এমপিও ও জাতীয়করণের তথ্য</a>
+<a href="#">ভূমি ও বিল্ডিং</a>
+<a href="#">রুম সংখ্যা</a>
+<a href="#">ক্যাম্পাস ম্যাপ</a>
+<a href="#">প্রাতিষ্ঠানিক যোগ্যতা</a>
+<a href="#">বার্ষিক রিপোর্ট</a>
+<a href="#">প্রশাসনিক তথ্য</a>
+<a href="#">একাডেমিক তথ্য</a>
+<a href="#">তথ্যাবলী</a>
+<a href="#">ডাউনলোড</a>
+<a href="#">ডিজিটাল ক্যাম্পাস</a>
+<a href="#">ফটো গ্যালারি</a>
+<a href="#">ভিডিও গ্যালারি</a>
+<a href="#">যোগাযোগ</a>
+</nav>
+
+<div class="container">
+
+<!-- Quick Menu / Dashboard -->
+<div class="dashboard" id="dashboard">
+<h2>Quick Menu / Dashboard</h2>
+
+<div class="link-list">
+<h3>Google Docs / Sheets / Jessore Board</h3>
+<a href="https://docs.google.com/spreadsheets/d/1gO3THQ0uqADhQIlJcmzaK80Emr0Y_1ugUi2EyZmo8pc/edit?usp=drivesdk" target="_blank">Student List</a>
+<a href="https://docs.google.com/spreadsheets/d/1VdudYwPcl4igyyuFsO3fN7pFxVyWh4G9z0QyAgX9yUE/edit?usp=drivesdk" target="_blank">উপবৃত্তি / বৃত্তি প্রাপ্ত শিক্ষার্থী</a>
+<a href="https://docs.google.com/spreadsheets/d/1opqV7Ktqi0fAsdEGEOGw4tCjEaZNumFhlBeFJandEpQ/edit?usp=drivesdk" target="_blank">শিক্ষক-শিক্ষিকা তালিকা</a>
+<a href="https://docs.google.com/spreadsheets/d/1YVjHJiS6zLd8XV0-U3Lk9N9jglud6whqKQZSO-maYW8/edit?usp=drivesdk" target="_blank">ম্যানেজিং কমিটি সংক্রান্ত তথ্য</a>
+<a href="https://nctb.portal.gov.bd/site/page/07ed46a6-0a64-4b75-9bd1-135e45d586bc" target="_blank">E-book</a>
+<a href="https://www.jessoreboard.gov.bd/" target="_blank">Jessore Board</a>
+<a href="https://youtu.be/_r58G5iM_NU?si=vKtc_njm0xFPCe2H" target="_blank">জাতীয় সংগীত</a>
+</div>
+
+<!-- School History -->
+<div class="history-link">
+<h3>বিদ্যালয়ের ইতিহাস</h3>
+<a href="https://docs.google.com/document/d/1acqBfwA8CuakAF1Icu8MQJ_6fjOMuwX34k_BCSz6PjA/edit?usp=drivesdk" target="_blank">বিদ্যালয়ের ইতিহাস দেখুন</a>
+</div>
+
+<!-- Notification Board -->
+<div class="section editable" contenteditable="false">
+<h3>Notification Board</h3>
+<p>২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।</p>
+</div>
+
+<!-- Google Map -->
+<div class="section map">
+<h3>স্কুলের অবস্থান</h3>
+<iframe src="https://www.google.com/maps?q=Makhaldanga, Chuadanga, Bangladesh&output=embed" width="100%" height="300"></iframe>
+</div>
+
+<!-- Chatbox -->
+<div class="section chatbox" id="chatBox">
+<h3>Digital Assistant / Chatbox</h3>
+<p>Chat simulation placeholder (login required for full edit)</p>
+</div>
+
+<!-- Forms Section -->
+<div class="form-section">
+<h3>Student Admission Form</h3>
+<input type="text" placeholder="Student Full Name" id="studentName">
+<input type="number" placeholder="Age" id="studentAge">
+<input type="text" placeholder="Class" id="studentClass">
+<input type="text" placeholder="Birth Certificate Number" id="studentBC">
+<input type="file" id="studentPhoto">
+<input type="file" id="parentNID">
+<button onclick="submitAdmission()">Submit Admission Form</button>
+</div>
+
+<div class="form-section">
+<h3>Guardian Complaint Form</h3>
+<input type="text" placeholder="Guardian Name" id="guardianName">
+<input type="text" placeholder="Mobile No" id="guardianMobile">
+<textarea placeholder="Complaint" id="guardianComplaint"></textarea>
+<button onclick="submitGuardian()">Submit Complaint</button>
+</div>
+
+<!-- Footer -->
+<footer>
+<p>Thanks for visiting our website</p>
+<p>Website planned and implemented by the Head Teacher Md. Shabut Ali and all Assistant Teachers of Makhaldanga Dinanathpur Secondary School.</p>
+<p>Developed by Md Ismail Hossen</p>
+<p>Powered by Shikaloy</p>
+</footer>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<h3>Login</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button id="loginSubmit">Login</button>
+</div>
+</div>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const chatToggle = document.getElementById('chatToggle');
+const chatBox = document.getElementById('chatBox');
+const loginModal = document.getElementById('loginModal');
+const closeModal = document.querySelector('.close');
+const loginSubmit = document.getElementById('loginSubmit');
+
+loginBtn.onclick = () => { loginModal.style.display = 'block'; }
+closeModal.onclick = () => { loginModal.style.display = 'none'; }
+window.onclick = (e) => { if(e.target == loginModal) loginModal.style.display='none'; }
+
+loginSubmit.onclick = () => {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    if(user === '115363' && pass === 'v3ci29i3'){
+        alert('Login successful');
+        loginModal.style.display = 'none';
+        document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
+        loginBtn.style.display='none';
+    } else { alert('Invalid username or password'); }
+}
+
+// Chatbox toggle
+chatToggle.onclick = () => {
+    if(chatBox.style.display === 'none' || chatBox.style.display === ''){
+        chatBox.style.display = 'block';
+    } else { chatBox.style.display = 'none'; }
+}
+
+function submitAdmission() {
+    alert('Admission form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+
+function submitGuardian() {
+    alert('Complaint form submitted! (Simulation)\nData will be sent to Gmail: sss115363@gmail.com');
+}
+</script>
+
+</body>
+</html><!-- Notification Board Section -->
+<div class="section">
+<h3>চলমান নোটিশ বোর্ড</h3>
+<marquee behavior="scroll" direction="left" id="noticeMarquee">
+২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।
+</marquee>
+</div>
+
+<script>
+// Editable Notices after login simulation
+const notices = [
+    "২৫ সেপ্টেম্বর ২০২৫ থেকে ৭ অক্টোবর ২০২৫ পর্যন্ত বিদ্যালয়ের সকল কার্যক্রম বন্ধ থাকবে। ২০২৫ রোববার থেকে স্বাভাবিক কার্যক্রম চলবে।",
+    "নতুন পাঠ্যক্রম প্রবর্তন করা হয়েছে। শিক্ষার্থীরা অবগত হোক।",
+    "বার্ষিক ক্রীড়া প্রতিযোগিতা ১৫ অক্টোবর ২০২৫ অনুষ্ঠিত হবে।"
+];
+
+function updateNotice(index) {
+    if(index >= 0 && index < notices.length){
+        document.getElementById('noticeMarquee').innerText = notices[index];
+    }
+}
+
+// Login simulation editable
+function loginForNotices(user, pass){
+    if(user === '115363' && pass === 'v3ci29i3'){
+        alert('Login successful - Now you can edit notices');
+        let newNotice = prompt("Add new notice for the board:");
+        if(newNotice){
+            notices.push(newNotice);
+            document.getElementById('noticeMarquee').innerText = newNotice;
+        }
+    } else {
+        alert('Invalid credentials');
+    }
+}
+
+// Always visible - even without login
+// Example: loginForNotices('115363', 'v3ci29i3'); only for editing<!-- School History Section -->
+<section id="schoolHistory" class="section">
+    <h2>মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয়ের ইতিহাস</h2>
+    <p>
+        মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয়টি ১৯৮৯ সালে প্রতিষ্ঠিত হয়। 
+        প্রতিষ্ঠার মূল উদ্দেশ্য ছিল গ্রামের শিক্ষার্থীদের মানসম্মত শিক্ষা প্রদান করা এবং 
+        তাদের সার্বিক বিকাশে সহায়তা করা। বিদ্যালয়টি প্রতিষ্ঠায় এলাকার গণ্যমান্য ব্যক্তি 
+        ও সাধারণ গ্রামের মানুষের অবদান ছিল গুরুত্বপূর্ণ। তারা চিত্তশক্তি, অর্থ এবং সময় 
+        ব্যয় করে বিদ্যালয়ের জন্য জমি সংগ্রহ, ভবন নির্মাণ এবং প্রাথমিক শিক্ষার জন্য 
+        প্রয়োজনীয় সুবিধা প্রদান করেছিলেন।
+    </p>
+    <p>
+        বিদ্যালয়টি প্রতিষ্ঠার পর থেকে স্থানীয় শিক্ষার্থীদের জন্য শিক্ষা প্রসারের একটি কেন্দ্র 
+        হিসেবে কাজ করে আসছে। নিয়মিত পাঠদান, শিক্ষামূলক কার্যক্রম এবং বিভিন্ন সাংস্কৃতিক 
+        অনুষ্ঠান বিদ্যালয়টিকে শিক্ষার পাশাপাশি শিক্ষার্থীদের চারিত্রিক বিকাশের ক্ষেত্রেও 
+        উল্লেখযোগ্য অবদান রাখতে সাহায্য করেছে।
+    </p>
+    <p>
+        বর্তমানে মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয় একটি সুপ্রতিষ্ঠিত শিক্ষা প্রতিষ্ঠান 
+        হিসেবে পরিচিত, যা শিক্ষার মান রক্ষা করার পাশাপাশি সমাজের উন্নয়নে গুরুত্বপূর্ণ 
+        ভূমিকা পালন করে আসছে।
+    </p>
+</section><!-- School History Section -->
+<section id="schoolHistory" class="section">
+    <h2>মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয়ের ইতিহাস</h2>
+    <p>
+        মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয়টি ১৯৮৯ সালে প্রতিষ্ঠিত হয়। 
+        প্রতিষ্ঠার মূল উদ্দেশ্য ছিল গ্রামের শিক্ষার্থীদের মানসম্মত শিক্ষা প্রদান করা এবং 
+        তাদের সার্বিক বিকাশে সহায়তা করা। বিদ্যালয়টি প্রতিষ্ঠায় এলাকার গণ্যমান্য ব্যক্তি 
+        ও সাধারণ গ্রামের মানুষের অবদান ছিল গুরুত্বপূর্ণ। তারা চিত্তশক্তি, অর্থ এবং সময় 
+        ব্যয় করে বিদ্যালয়ের জন্য জমি সংগ্রহ, ভবন নির্মাণ এবং প্রাথমিক শিক্ষার জন্য 
+        প্রয়োজনীয় সুবিধা প্রদান করেছিলেন।
+    </p>
+    <p>
+        বিদ্যালয়টি প্রতিষ্ঠার পর থেকে স্থানীয় শিক্ষার্থীদের জন্য শিক্ষা প্রসারের একটি কেন্দ্র 
+        হিসেবে কাজ করে আসছে। নিয়মিত পাঠদান, শিক্ষামূলক কার্যক্রম এবং বিভিন্ন সাংস্কৃতিক 
+        অনুষ্ঠান বিদ্যালয়টিকে শিক্ষার পাশাপাশি শিক্ষার্থীদের চারিত্রিক বিকাশের ক্ষেত্রেও 
+        উল্লেখযোগ্য অবদান রাখতে সাহায্য করেছে।
+    </p>
+    <p>
+        বর্তমানে মাখালডাঙা দীননাথপুর মাধ্যমিক বিদ্যালয় একটি সুপ্রতিষ্ঠিত শিক্ষা প্রতিষ্ঠান 
+        হিসেবে পরিচিত, যা শিক্ষার মান রক্ষা করার পাশাপাশি সমাজের উন্নয়নে গুরুত্বপূর্ণ 
+        ভূমিকা পালন করে আসছে।
+    </p>
+</section><!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</title>
+<style>
+  body{font-family:"Noto Sans Bengali",Arial,sans-serif;margin:0;background:#f8f9fa;color:#222}
+  header{background:#00509e;color:#fff;padding:15px;text-align:center}
+  header h1,header p{margin:3px 0}
+  nav{background:#023e8a}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+  nav ul li{position:relative}
+  nav ul li a{display:block;padding:12px 20px;color:#fff;text-decoration:none}
+  nav ul li:hover{background:#0077b6}
+  nav ul li ul{display:none;position:absolute;top:100%;left:0;background:#0096c7;padding:0;z-index:1000}
+  nav ul li:hover ul{display:block}
+  nav ul li ul li{width:220px}
+  section{padding:20px;background:#fff;margin:15px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+  footer{background:#00509e;color:#fff;text-align:center;padding:10px;margin-top:20px}
+  .notice-board{background:#fff3cd;border:1px solid #ffeeba;padding:10px;border-radius:5px}
+  .login-box,.dashboard{background:#e9ecef;padding:15px;margin:20px;border-radius:8px}
+  input,button,textarea{padding:8px;margin:5px 0;width:100%}
+  #clock{font-size:18px;font-weight:bold;color:#fff}
+  #chatButton{position:fixed;bottom:20px;right:20px;background:#0077b6;color:white;border:none;padding:12px 18px;border-radius:50%;cursor:pointer;font-size:20px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+  #chatWindow{display:none;position:fixed;bottom:70px;right:20px;width:300px;background:white;border:1px solid #ccc;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);padding:10px}
+  #chatWindow h4{margin:0 0 10px;background:#0077b6;color:white;padding:8px;border-radius:5px}
+</style>
+</head>
+<body>
+
+<header>
+<h1 contenteditable="true" id="schoolName">মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+<p contenteditable="true" id="schoolSub">Makhaldanga Dinnathpur Secondary School</p>
+<p>EIIN: 115363 | মোবাইল: 01309115363 | ইমেইল: sss115363@gmail.com</p>
+<div id="clock"></div>
+</header>
+
+<nav>
+<ul>
+<li><a href="#">প্রতিষ্ঠান সম্পর্কিত</a>
+  <ul>
+    <li>প্রতিষ্ঠান সম্পর্কে</li>
+    <li>ম্যানেজিং কমিটি</li>
+    <li>প্রতিষ্ঠানের অনুমতি ও স্বীকৃতি</li>
+    <li>এমপিও ও জাতীয়করণ</li>
+    <li>ভূমি/বিল্ডিং এবং রুম সংখ্যা</li>
+    <li>ক্যাম্পাস ম্যাপ</li>
+    <li>প্রাতিষ্ঠানিক যোগ্যতা</li>
+    <li>এনুয়াল রিপোর্ট</li>
+  </ul>
+</li>
+<li><a href="#">প্রশাসনিক তথ্য</a>
+  <ul>
+    <li>প্রধানশিক্ষকের তালিকা</li>
+    <li>শিক্ষক-শিক্ষিকাদের তালিকা</li>
+    <li>কর্মচারীদের তালিকা</li>
+    <li>প্রাক্তন শিক্ষক-শিক্ষিকার তালিকা</li>
+    <li>শিক্ষক-কর্মচারী কল্যাণ তহবিল</li>
+    <li>শিক্ষক পরিষদের তথ্য</li>
+    <li>অর্নার বোর্ড</li>
+    <li>প্রতিষ্ঠাতা এবং দানকারীর তথ্য</li>
+  </ul>
+</li>
+<li><a href="#">একাডেমিক তথ্য</a></li>
+<li><a href="#">তথ্যাবলী</a></li>
+<li><a href="#">ডাউনলোড</a></li>
+<li><a href="#">ডিজিটাল ক্যাম্পাস</a></li>
+<li><a href="#">ফটো গ্যালারী</a></li>
+<li><a href="#">ভিডিও গ্যালারী</a></li>
+<li><a href="#">যোগাযোগ</a></li>
+<li><a href="#" id="loginBtn">Login</a></li>
+</ul>
+</nav>
+
+<section>
+<h2>নোটিশ বোর্ড</h2>
+<div class="notice-board">
+<marquee behavior="scroll" direction="up" height="120px">
+📢 ভর্তি ফরম বিতরণ শীঘ্রই<br><br>
+📢 বার্ষিক ক্রীড়া প্রতিযোগিতা আগামী মাসে অনুষ্ঠিত হবে
+</marquee>
+</div>
+</section>
+
+<section>
+<h2>জাতীয় সংগীত</h2>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/_r58G5iM_NU?si=XwM_B0enEihs-tBB" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<section>
+<h2>আমাদের সাথে যুক্ত হন</h2>
+<p>
+<a href="https://www.facebook.com/makhaladanga.dinanathapura.madhyah.bidyalaya" target="_blank">📘 Facebook পেজ</a> |
+<a href="https://www.youtube.com/" target="_blank">▶️ YouTube চ্যানেল</a>
+</p>
+</section>
+
+<section>
+<h2>আমাদের অবস্থান</h2>
+<iframe src="https://www.google.com/maps?q=HRXR+85F,Shankarchandra&output=embed" width="100%" height="300" style="border:0;" allowfullscreen></iframe>
+</section>
+
+<section>
+<h2>অভিভাবক বক্স</h2>
+<form action="mailto:sss115363@gmail.com" method="post" enctype="text/plain">
+<input type="text" name="name" placeholder="অভিভাবকের নাম" required>
+<input type="text" name="address" placeholder="ঠিকানা" required>
+<input type="text" name="mobile" placeholder="মোবাইল নম্বর" required>
+<textarea name="message" placeholder="অভিযোগ / বার্তা" required></textarea>
+<button type="submit">পাঠান</button>
+</form>
+</section>
+
+<section class="login-box" id="loginBox" style="display:none;">
+<h3>অ্যাডমিন লগইন</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button id="loginSubmit">Login</button>
+<small>Demo: username = <b>115363</b>, password = <b>v3ci29i3</b></small>
+</section>
+
+<section class="dashboard" id="dashboard" style="display:none;">
+<h3>Dashboard / Quick Menu</h3>
+<ul>
+<li>অনলাইন ভর্তি</li>
+<li>বেতন/ফি পরিশোধ</li>
+<li>শিক্ষক তালিকা</li>
+<li>ছাত্র-ছাত্রীর তালিকা</li>
+<li>নোটিশ</li>
+<li>ফলাফল</li>
+<li>ক্লাস রুটিন</li>
+<li>পরীক্ষার রুটিন</li>
+<li>অভিভাবক বক্স</li>
+</ul>
+</section>
+
+<footer>
+<p>&copy; 2025 মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয় | Powered by Shikalo | Developed by Md Ismail Hossen</p>
+<p>School History: প্রতিষ্ঠার ইতিহাস এবং অবদান …</p>
+</footer>
+
+<button id="chatButton">💬</button>
+<div id="chatWindow">
+<h4>হেল্প ডেস্ক</h4>
+<p>স্বাগতম! 👋 এখানে আপনার প্রশ্ন লিখুন।</p>
+<textarea placeholder="আপনার প্রশ্ন লিখুন..."></textarea>
+<button>Send</button>
+</div>
+
+<script>
+function updateClock(){
+const now=new Date();
+document.getElementById("clock").innerText=now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+document.getElementById("chatButton").onclick=function(){
+const chat=document.getElementById("chatWindow");
+chat.style.display=(chat.style.display==="block")?"none":"block";
+};
+
+const loginBtn=document.getElementById("loginBtn");
+const loginBox=document.getElementById("loginBox");
+const loginSubmit=document.getElementById("loginSubmit");
+const dashboard=document.getElementById("dashboard");
+
+loginBtn.onclick=function(){loginBox.style.display="block";}
+loginSubmit.onclick=function(){
+const user=document.getElementById("username").value;
+const pass=document.getElementById("password").value;
+if(user==="115363" && pass==="v3ci29i3"){
+alert("Login Successful! Now you can edit content.");
+document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable','true'));
+loginBox.style.display="none";
+dashboard.style.display="block";
+}else{alert("Invalid credentials!");}
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</title>
+<style>
+  body{font-family:"Noto Sans Bengali",Arial,sans-serif;margin:0;background:#f8f9fa;color:#222}
+  header{background:#00509e;color:#fff;padding:15px;text-align:center}
+  header h1,header p{margin:3px 0}
+  nav{background:#023e8a}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+  nav ul li{position:relative}
+  nav ul li a{display:block;padding:12px 20px;color:#fff;text-decoration:none}
+  nav ul li:hover{background:#0077b6}
+  nav ul li ul{display:none;position:absolute;top:100%;left:0;background:#0096c7;padding:0;z-index:1000}
+  nav ul li:hover ul{display:block}
+  nav ul li ul li{width:220px}
+  section{padding:20px;background:#fff;margin:15px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+  footer{background:#00509e;color:#fff;text-align:center;padding:10px;margin-top:20px}
+  .notice-board{background:#fff3cd;border:1px solid #ffeeba;padding:10px;border-radius:5px}
+  .login-box,.dashboard{background:#e9ecef;padding:15px;margin:20px;border-radius:8px}
+  input,button,textarea{padding:8px;margin:5px 0;width:100%}
+  #clock{font-size:18px;font-weight:bold;color:#fff}
+  #chatButton{position:fixed;bottom:20px;right:20px;background:#0077b6;color:white;border:none;padding:12px 18px;border-radius:50%;cursor:pointer;font-size:20px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+  #chatWindow{display:none;position:fixed;bottom:70px;right:20px;width:300px;background:white;border:1px solid #ccc;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);padding:10px}
+  #chatWindow h4{margin:0 0 10px;background:#0077b6;color:white;padding:8px;border-radius:5px}
+</style>
+</head>
+<body>
+
+<header>
+<h1 contenteditable="true" id="schoolName">মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+<p contenteditable="true" id="schoolSub">Makhaldanga Dinnathpur Secondary School</p>
+<p>EIIN: 115363 | মোবাইল: 01309115363 | ইমেইল: sss115363@gmail.com</p>
+<div id="clock"></div>
+</header>
+
+<nav>
+<ul>
+<li><a href="#">প্রতিষ্ঠান সম্পর্কিত</a>
+  <ul>
+    <li>প্রতিষ্ঠান সম্পর্কে</li>
+    <li>ম্যানেজিং কমিটি</li>
+    <li>প্রতিষ্ঠানের অনুমতি ও স্বীকৃতি</li>
+    <li>এমপিও ও জাতীয়করণ</li>
+    <li>ভূমি/বিল্ডিং এবং রুম সংখ্যা</li>
+    <li>ক্যাম্পাস ম্যাপ</li>
+    <li>প্রাতিষ্ঠানিক যোগ্যতা</li>
+    <li>এনুয়াল রিপোর্ট</li>
+  </ul>
+</li>
+<li><a href="#">প্রশাসনিক তথ্য</a>
+  <ul>
+    <li>প্রধানশিক্ষকের তালিকা</li>
+    <li>শিক্ষক-শিক্ষিকাদের তালিকা</li>
+    <li>কর্মচারীদের তালিকা</li>
+    <li>প্রাক্তন শিক্ষক-শিক্ষিকার তালিকা</li>
+    <li>শিক্ষক-কর্মচারী কল্যাণ তহবিল</li>
+    <li>শিক্ষক পরিষদের তথ্য</li>
+    <li>অর্নার বোর্ড</li>
+    <li>প্রতিষ্ঠাতা এবং দানকারীর তথ্য</li>
+  </ul>
+</li>
+<li><a href="#">একাডেমিক তথ্য</a></li>
+<li><a href="#">তথ্যাবলী</a></li>
+<li><a href="#">ডাউনলোড</a></li>
+<li><a href="#">ডিজিটাল ক্যাম্পাস</a></li>
+<li><a href="#">ফটো গ্যালারী</a></li>
+<li><a href="#">ভিডিও গ্যালারী</a></li>
+<li><a href="#">যোগাযোগ</a></li>
+<li><a href="#" id="loginBtn">Login</a></li>
+</ul>
+</nav>
+
+<section>
+<h2>নোটিশ বোর্ড</h2>
+<div class="notice-board">
+<marquee behavior="scroll" direction="up" height="120px">
+📢 ভর্তি ফরম বিতরণ শীঘ্রই<br><br>
+📢 বার্ষিক ক্রীড়া প্রতিযোগিতা আগামী মাসে অনুষ্ঠিত হবে
+</marquee>
+</div>
+</section>
+
+<section>
+<h2>জাতীয় সংগীত</h2>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/_r58G5iM_NU?si=XwM_B0enEihs-tBB" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<section>
+<h2>আমাদের সাথে যুক্ত হন</h2>
+<p>
+<a href="https://www.facebook.com/makhaladanga.dinanathapura.madhyah.bidyalaya" target="_blank">📘 Facebook পেজ</a> |
+<a href="https://www.youtube.com/" target="_blank">▶️ YouTube চ্যানেল</a>
+</p>
+</section>
+
+<section>
+<h2>আমাদের অবস্থান</h2>
+<iframe src="https://www.google.com/maps?q=HRXR+85F,Shankarchandra&output=embed" width="100%" height="300" style="border:0;" allowfullscreen></iframe>
+</section>
+
+<section>
+<h2>অভিভাবক বক্স</h2>
+<form action="mailto:sss115363@gmail.com" method="post" enctype="text/plain">
+<input type="text" name="name" placeholder="অভিভাবকের নাম" required>
+<input type="text" name="address" placeholder="ঠিকানা" required>
+<input type="text" name="mobile" placeholder="মোবাইল নম্বর" required>
+<textarea name="message" placeholder="অভিযোগ / বার্তা" required></textarea>
+<button type="submit">পাঠান</button>
+</form>
+</section>
+
+<section class="login-box" id="loginBox" style="display:none;">
+<h3>অ্যাডমিন লগইন</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button id="loginSubmit">Login</button>
+<small>Demo: username = <b>115363</b>, password = <b>v3ci29i3</b></small>
+</section>
+
+<section class="dashboard" id="dashboard" style="display:none;">
+<h3>Dashboard / Quick Menu</h3>
+<ul>
+<li>অনলাইন ভর্তি</li>
+<li>বেতন/ফি পরিশোধ</li>
+<li>শিক্ষক তালিকা</li>
+<li>ছাত্র-ছাত্রীর তালিকা</li>
+<li>নোটিশ</li>
+<li>ফলাফল</li>
+<li>ক্লাস রুটিন</li>
+<li>পরীক্ষার রুটিন</li>
+<li>অভিভাবক বক্স</li>
+</ul>
+</section>
+
+<footer>
+<p>&copy; 2025 মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয় | Powered by Shikalo | Developed by Md Ismail Hossen</p>
+</footer>
+
+<button id="chatButton">💬</button>
+<div id="chatWindow">
+<h4>হেল্প ডেস্ক</h4>
+<p>স্বাগতম! 👋 এখানে আপনার প্রশ্ন লিখুন।</p>
+<textarea placeholder="আপনার প্রশ্ন লিখুন..."></textarea>
+<button>Send</button>
+</div>
+
+<script>
+function updateClock(){
+const now=new Date();
+document.getElementById("clock").innerText=now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+document.getElementById("chatButton").onclick=function(){
+const chat=document.getElementById("chatWindow");
+chat.style.display=(chat.style.display==="block")?"none":"block";
+};
+
+const loginBtn=document.getElementById("loginBtn");
+const loginBox=document.getElementById("loginBox");
+const loginSubmit=document.getElementById("loginSubmit");
+const dashboard=document.getElementById("dashboard");
+
+loginBtn.onclick=function(){loginBox.style.display="block";}
+loginSubmit.onclick=function(){
+const user=document.getElementById("username").value;
+const pass=document.getElementById("password").value;
+if(user==="115363" && pass==="v3ci29i3"){
+alert("Login Successful! Now you can edit content.");
+document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable','true'));
+loginBox.style.display="none";
+dashboard.style.display="block";
+}else{alert("Invalid credentials!");}
+}
+</script>
+
+</body>
+</html>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয় — Admin & Admissions</title>
+
+<!-- Styles (simple) -->
+<style>
+  body{font-family: "Noto Sans Bengali", Arial, sans-serif; margin:0; background:#f4f6f9; color:#222}
+  header{background:#004080;color:#fff;padding:14px;text-align:center}
+  header h1{margin:0}
+  nav{background:#026; color:#fff; padding:6px 12px}
+  nav .menu{display:flex;gap:8px;flex-wrap:wrap}
+  nav a{color:#fff;text-decoration:none;padding:8px}
+  main{max-width:1100px;margin:18px auto;padding:0 12px}
+  section.card{background:#fff;padding:14px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+  input,select,textarea,button{padding:8px;margin:6px 0;width:100%;box-sizing:border-box}
+  .small{font-size:13px;color:#666}
+  #chatBtn{position:fixed;right:18px;bottom:18px;background:#ff6b6b;color:#fff;border:none;padding:12px 14px;border-radius:50%;cursor:pointer;z-index:999}
+  #chatBox{display:none;position:fixed;right:18px;bottom:80px;width:320px;background:#fff;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.2);z-index:999;padding:10px}
+  #clock{color:#fff;font-weight:700;margin-top:6px}
+  .hidden{display:none}
+  .btn{background:#0077b6;color:#fff;border:none;padding:8px;border-radius:6px;cursor:pointer}
+  table{width:100%;border-collapse:collapse}
+  th,td{border:1px solid #eee;padding:8px;text-align:left}
+  .actions button{margin-right:6px}
+  footer{padding:12px;text-align:center;color:#555}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="schoolName">মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয়</h1>
+  <div id="schoolMeta">EIIN:115363 | মোবাইল:01309115363 | Gmail: sss115363@gmail.com</div>
+  <div id="clock"></div>
+</header>
+
+<nav>
+  <div class="menu">
+    <a href="#home">হোম</a>
+    <a href="#about">প্রতিষ্ঠান সম্পর্কিত</a>
+    <a href="#admin">প্রশাসনিক তথ্য</a>
+    <a href="#academic">একাডেমিক তথ্য</a>
+    <a href="#downloads">ডাউনলোড</a>
+    <a href="#digital">ডিজিটাল ক্যাম্পাস</a>
+    <a href="#gallery">ফটো/ভিডিও</a>
+    <a href="#contact">যোগাযোগ</a>
+    <a id="loginToggle" href="#">Login</a>
+  </div>
+</nav>
+
+<main>
+  <!-- Home / Notice -->
+  <section class="card" id="home">
+    <h2>নোটিশ বোর্ড</h2>
+    <div id="noticeArea" class="card small">
+      <div id="noticeList">লোড হচ্ছে...</div>
+    </div>
+  </section>
+
+  <!-- Admissions form (public) -->
+  <section class="card" id="admission">
+    <h2>অনলাইন ভর্তি ফর্ম (Admission Form)</h2>
+    <form id="admissionForm">
+      <div class="grid">
+        <div>
+          <label>Student Full Name</label>
+          <input type="text" id="stu_name" required />
+          <label>Age</label>
+          <input type="number" id="stu_age" required />
+          <label>Class to enroll (6-10)</label>
+          <select id="stu_class"><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>
+        </div>
+        <div>
+          <label>Birth Registration No</label>
+          <input type="text" id="stu_birth" />
+          <label>Student Photo (max 2MB)</label>
+          <input type="file" id="stu_photo" accept="image/*" />
+          <label>Parents NID (image/pdf, max 5MB)</label>
+          <input type="file" id="parents_nid" accept=".pdf,image/*" />
+        </div>
+      </div>
+      <label>Parent/Guardian Name</label>
+      <input type="text" id="parent_name" required />
+      <label>Parent Mobile</label>
+      <input type="text" id="parent_mobile" required />
+      <label>Address</label>
+      <textarea id="parent_address"></textarea>
+      <button type="submit" class="btn">Submit Admission</button>
+      <p class="small">এটি সাবমিট করলে ডাটাবেসে সংরক্ষিত হবে এবং (optionally) আপনার Gmail-এ নোটিফিকেশন পাঠানো যাবে (নিচে নির্দেশ আছে)।</p>
+    </form>
+  </section>
+
+  <!-- Parent Complaint (Google Form option or direct save) -->
+  <section class="card" id="complaint">
+    <h2>অভিভাবক বক্স (Complaint)</h2>
+    <form id="complaintForm">
+      <input id="cb_parent" placeholder="অভিভাবকের নাম" required />
+      <input id="cb_mobile" placeholder="মোবাইল নম্বর" required />
+      <textarea id="cb_msg" placeholder="অভিযোগ / বার্তা" required></textarea>
+      <button class="btn" type="submit">Submit Complaint</button>
+    </form>
+  </section>
+
+  <!-- Admin area (hidden until login) -->
+  <section class="card hidden" id="adminArea">
+    <h2>Admin Dashboard</h2>
+
+    <!-- Quick menu -->
+    <div>
+      <button class="btn" id="showStudentsBtn">Students List</button>
+      <button class="btn" id="showTeachersBtn">Teachers List</button>
+      <button class="btn" id="showFeesBtn">Fees / Payments</button>
+      <button class="btn" id="showUploadsBtn">Forwarding / Approval Uploads</button>
+      <button class="btn" id="logoutBtn">Logout</button>
+    </div>
+
+    <!-- Add Teacher -->
+    <div style="margin-top:12px">
+      <h3>Add Teacher</h3>
+      <form id="teacherForm">
+        <input id="t_name" placeholder="Teacher Name" required />
+        <input id="t_subject" placeholder="Subject" />
+        <input id="t_mobile" placeholder="Mobile" />
+        <button class="btn" type="submit">Add Teacher</button>
+      </form>
+    </div>
+
+    <!-- Students table -->
+    <div id="studentsArea" class="hidden" style="margin-top:12px">
+      <h3>Students</h3>
+      <table id="studentsTable"><thead><tr><th>ID</th><th>Name</th><th>Class</th><th>Age</th><th>Parent</th><th>Actions</th></tr></thead><tbody></tbody></table>
+    </div>
+
+    <!-- Teachers table -->
+    <div id="teachersArea" class="hidden" style="margin-top:12px">
+      <h3>Teachers</h3>
+      <table id="teachersTable"><thead><tr><th>Name</th><th>Subject</th><th>Mobile</th><th>Actions</th></tr></thead><tbody></tbody></table>
+    </div>
+
+    <!-- Fees area -->
+    <div id="feesArea" class="hidden" style="margin-top:12px">
+      <h3>Fees / Payments</h3>
+      <form id="feeForm">
+        <input id="fee_student_id" placeholder="Student ID (auto generated on admission)" required />
+        <select id="fee_month">
+          <option>January</option><option>February</option><option>March</option><option>April</option>
+          <option>May</option><option>June</option><option>July</option><option>August</option>
+          <option>September</option><option>October</option><option>November</option><option>December</option>
+        </select>
+        <input id="fee_amount" placeholder="Amount" required />
+        <button class="btn" type="submit">Record Payment & Generate Slip</button>
+      </form>
+
+      <div id="paymentsTableWrap"><table id="paymentsTable"><thead><tr><th>Student ID</th><th>Month</th><th>Amount</th><th>Date</th></tr></thead><tbody></tbody></table></div>
+    </div>
+
+    <!-- Uploads (Forwarding/Approval) -->
+    <div id="uploadsArea" class="hidden" style="margin-top:12px">
+      <h3>Forwarding / Approval Uploads</h3>
+      <form id="uploadForm">
+        <label>Type</label>
+        <select id="uploadType"><option>Forwarding Letter</option><option>Institution Approval</option></select>
+        <label>File (max 5MB)</label>
+        <input type="file" id="uploadFile" accept=".pdf,.doc,.docx,image/*" />
+        <button class="btn" type="submit">Upload</button>
+      </form>
+      <div id="uploadsList" style="margin-top:10px"></div>
+    </div>
+
+  </section>
+
+  <!-- Gallery / media / links -->
+  <section class="card" id="gallery">
+    <h2>ফটো ও ভিডিও গ্যালারি</h2>
+    <p>Youtube / Facebook links: <a target="_blank" href="https://www.facebook.com/makhaladanga.dinanathapura.madhyah.bidyalaya">Facebook</a> | <a target="_blank" href="https://www.youtube.com/">YouTube</a></p>
+  </section>
+
+  <!-- Contact / Map -->
+  <section class="card" id="contact">
+    <h2>যোগাযোগ ও লোকেশন</h2>
+    <p>Mobile: 01309115363 | Gmail: sss115363@gmail.com</p>
+    <iframe width="100%" height="300" style="border:0" src="https://www.google.com/maps?q=HRXR+85F,Shankarchandra&output=embed"></iframe>
+  </section>
+
+</main>
+
+<!-- Chat -->
+<button id="chatBtn" title="Help">💬</button>
+<div id="chatBox">
+  <h4>Help Desk</h4>
+  <div id="chatHistory" style="height:180px;overflow:auto;border:1px solid #eee;padding:8px;margin-bottom:8px"></div>
+  <input id="chatInput" placeholder="আপনার প্রশ্ন লিখুন..." />
+  <button id="chatSend" class="btn">Send</button>
+</div>
+
+<footer>
+  <div>© 2025 মাখলডাঙ্গা দীননাথপুর মাধ্যমিক বিদ্যালয় — Powered by Shikalo | Developed by Md Ismail Hossen</div>
+  <div class="small">School History: (এখানে আপনার স্কুল ইতিহাস লিখুন)</div>
+</footer>
+
+<!-- Firebase JS SDK (v9 modular) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+<script>
+/* ============================
+  *** IMPORTANT: Replace with your Firebase config ***
+  Go to Firebase Console → Project Settings → Your apps → Config
+  ============================ */
+const firebaseConfig = {
+  apiKey: "FIREBASE_APIKEY_HERE",
+  authDomain: "FIREBASE_AUTHDOMAIN_HERE",
+  projectId: "FIREBASE_PROJECTID_HERE",
+  storageBucket: "FIREBASE_STORAGEBUCKET_HERE",
+  messagingSenderId: "FIREBASE_MESSAGING_SENDER_ID_HERE",
+  appId: "FIREBASE_APPID_HERE"
+};
+
+// Initialize
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+/* ---------- Utils ---------- */
+function $(id){return document.getElementById(id);}
+function show(el){el.classList.remove('hidden'); el.style.display='block';}
+function hide(el){el.classList.add('hidden'); el.style.display='none';}
+
+/* -------- Clock ------- */
+function updateClock(){document.getElementById('clock').innerText = new Date().toLocaleString('bn-BD');}
+setInterval(updateClock,1000); updateClock();
+
+/* -------- Notices (load sample) ------- */
+async function loadNotices(){
+  const div = $('noticeList'); div.innerHTML = 'লোড হচ্ছে...';
+  try{
+    const snap = await db.collection('notices').orderBy('created','desc').limit(10).get();
+    if(snap.empty){ div.innerHTML = 'কোনো নোটিশ নেই'; return;}
+    div.innerHTML = '';
+    snap.forEach(doc=>{
+      const d = doc.data();
+      const p = document.createElement('p');
+      p.innerHTML = `<strong>${d.title || 'নোটিশ'}</strong> — ${d.text || ''} <span class="small">[${new Date(d.created?.toDate?.()||Date.now()).toLocaleString()}]</span>`;
+      div.appendChild(p);
+    });
+  }catch(e){ div.innerText = 'নোটিশ লোড করতে সমস্যা: '+ e.message; }
+}
+loadNotices();
+
+/* -------- Admission Form Submit (save to Firestore + upload files) ------- */
+$('admissionForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const name = $('stu_name').value.trim();
+  const age = $('stu_age').value;
+  const stclass = $('stu_class').value;
+  const birth = $('stu_birth').value;
+  const parent = $('parent_name').value.trim();
+  const mobile = $('parent_mobile').value.trim();
+  const address = $('parent_address').value.trim();
+
+  // files
+  const photoFile = $('stu_photo').files[0];
+  const nidFile = $('parents_nid').files[0];
+
+  try{
+    // create student doc (auto ID)
+    const studentRef = await db.collection('students').add({
+      name, age: Number(age), class: stclass, birthReg: birth, parent, mobile, address,
+      created: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    const studentId = studentRef.id;
+
+    // upload files if exist
+    const uploads = {};
+    if(photoFile){
+      if(photoFile.size > 2*1024*1024){ alert('Student photo max 2MB'); return; }
+      const phRef = storage.ref().child(`students/${studentId}/photo_${Date.now()}`);
+      await phRef.put(photoFile);
+      uploads.photoURL = await phRef.getDownloadURL();
+    }
+    if(nidFile){
+      if(nidFile.size > 5*1024*1024){ alert('Parents NID max 5MB'); return; }
+      const nidRef = storage.ref().child(`students/${studentId}/parents_nid_${Date.now()}`);
+      await nidRef.put(nidFile);
+      uploads.nidURL = await nidRef.getDownloadURL();
+    }
+
+    if(Object.keys(uploads).length) await studentRef.update(uploads);
+
+    alert('Admission submitted. Student ID: ' + studentId + '\nEmail notification: see setup instructions below.');
+    // reset
+    this.reset();
+    loadStudentsTable();
+  }catch(err){
+    alert('Submit error: ' + err.message);
+  }
+});
+
+/* -------- Complaint Form -> save to Firestore -------- */
+$('complaintForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const name = $('cb_parent').value.trim();
+  const mobile = $('cb_mobile').value.trim();
+  const msg = $('cb_msg').value.trim();
+  try{
+    await db.collection('complaints').add({name,mobile,msg,created: firebase.firestore.FieldValue.serverTimestamp()});
+    alert('অভিযোগ সাবমিট হয়েছে। ধন্যবাদ।');
+    this.reset();
+  }catch(err){ alert('Error: '+err.message); }
+});
+
+/* ---------- Admin Login (demo) ---------- */
+const ADMIN_USER = '115363';
+const ADMIN_PASS = 'v3ci29i3';
+$('loginToggle').addEventListener('click', function(e){ e.preventDefault(); promptAdminLogin(); });
+function promptAdminLogin(){
+  const u = prompt('Username:');
+  if(!u) return;
+  const p = prompt('Password:');
+  if(u===ADMIN_USER && p===ADMIN_PASS){
+    alert('Login successful');
+    show($('adminArea'));
+    // show admin controls
+    document.querySelectorAll('[contenteditable]').forEach(el => el.setAttribute('contenteditable','true'));
+    loadStudentsTable();
+    loadTeachersTable();
+    loadPayments();
+    loadUploads();
+  } else alert('Invalid credentials');
+}
+$('logoutBtn')?.addEventListener('click', ()=>{
+  if(confirm('Logout?')){ hide($('adminArea')); document.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable')); }
+});
+
+/* ---------- Students listing ---------- */
+async function loadStudentsTable(){
+  try{
+    const tbody = $('studentsTable').querySelector('tbody');
+    tbody.innerHTML = 'লোড হচ্ছে...';
+    const snap = await db.collection('students').orderBy('created','desc').get();
+    if(snap.empty){ tbody.innerHTML='<tr><td colspan="6">কোন ছাত্র নেই</td></tr>'; return; }
+    tbody.innerHTML = '';
+    snap.forEach(doc=>{
+      const d = doc.data(); const id = doc.id;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${id}</td><td>${d.name||''}</td><td>${d.class||''}</td><td>${d.age||''}</td><td>${d.parent||''}</td>
+        <td class="actions">
+          <button onclick="viewStudent('${id}')">View</button>
+          <button onclick="deleteStudent('${id}')">Delete</button>
+        </td>`;
+      tbody.appendChild(tr);
+    });
+  }catch(err){ alert('Load students error: '+err.message) }
+}
+window.viewStudent = async function(id){
+  const doc = await db.collection('students').doc(id).get();
+  if(!doc.exists) return alert('Not found');
+  const d = doc.data();
+  alert(`ID:${id}\nName:${d.name}\nClass:${d.class}\nAge:${d.age}\nParent:${d.parent}\nMobile:${d.mobile}`);
+}
+window.deleteStudent = async function(id){
+  if(!confirm('Delete student '+id+'?')) return;
+  await db.collection('students').doc(id).delete();
+  alert('Deleted');
+  loadStudentsTable();
+}
+
+/* ---------- Teachers ---------- */
+$('teacherForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const name = $('t_name').value.trim();
+  const sub = $('t_subject').value.trim();
+  const mob = $('t_mobile').value.trim();
+  try{
+    await db.collection('teachers').add({name,subject:sub,mobile:mob,created: firebase.firestore.FieldValue.serverTimestamp()});
+    this.reset(); loadTeachersTable();
+  }catch(err){ alert('Error: '+err.message) }
+});
+async function loadTeachersTable(){
+  const tbody = $('teachersTable').querySelector('tbody'); tbody.innerHTML='লোড হচ্ছে...';
+  const snap = await db.collection('teachers').orderBy('created','desc').get();
+  if(snap.empty){ tbody.innerHTML='<tr><td colspan="4">কোন শিক্ষক নেই</td></tr>'; return; }
+  tbody.innerHTML='';
+  snap.forEach(doc=>{
+    const d=doc.data(); const id=doc.id;
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${d.name||''}</td><td>${d.subject||''}</td><td>${d.mobile||''}</td>
+      <td><button onclick="deleteTeacher('${id}')">Delete</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
+window.deleteTeacher = async function(id){ if(!confirm('Delete?')) return; await db.collection('teachers').doc(id).delete(); loadTeachersTable(); }
+
+/* ---------- Fees / Payments ---------- */
+$('feeForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const sid = $('fee_student_id').value.trim();
+  const month = $('fee_month').value;
+  const amount = Number($('fee_amount').value);
+  if(!sid || !amount) return alert('Student ID and amount required');
+  try{
+    const payRef = await db.collection('payments').add({studentId:sid,month,amount,created: firebase.firestore.FieldValue.serverTimestamp()});
+    alert('Payment recorded. Payment ID: ' + payRef.id);
+    // Generate simple slip popup
+    const slip = `Payment Receipt\nStudent: ${sid}\nMonth: ${month}\nAmount: ${amount}\nDate: ${new Date().toLocaleString()}`;
+    const w = window.open("", "_blank"); w.document.write(`<pre>${slip}</pre>`);
+    loadPayments();
+  }catch(err){ alert('Payment error: '+err.message) }
+});
+async function loadPayments(){
+  const tbody = $('paymentsTable').querySelector('tbody'); tbody.innerHTML='লোড হচ্ছে...';
+  const snap = await db.collection('payments').orderBy('created','desc').limit(50).get();
+  if(snap.empty){ tbody.innerHTML='<tr><td colspan="4">কোনো পেমেন্ট নেই</td></tr>'; return; }
+  tbody.innerHTML='';
+  snap.forEach(doc=>{
+    const d = doc.data(); const date = d.created ? d.created.toDate().toLocaleString() : '';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${d.studentId}</td><td>${d.month}</td><td>${d.amount}</td><td>${date}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+/* ---------- Upload Forwarding / Approval ---------- */
+$('uploadForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const type = $('uploadType').value;
+  const file = $('uploadFile').files[0];
+  if(!file) return alert('Select file');
+  if(file.size > 5*1024*1024) return alert('Max 5MB');
+  try{
+    const ref = storage.ref().child(`uploads/${type.replace(/\s+/g,'_')}_${Date.now()}_${file.name}`);
+    const task = await ref.put(file);
+    const url = await ref.getDownloadURL();
+    await db.collection('uploads').add({type,fileName:file.name,url,created: firebase.firestore.FieldValue.serverTimestamp()});
+    alert('Uploaded');
+    loadUploads();
+    this.reset();
+  }catch(err){ alert('Upload error: '+err.message) }
+});
+async function loadUploads(){
+  const wrap = $('uploadsList'); wrap.innerHTML = 'লোড হচ্ছে...';
+  const snap = await db.collection('uploads').orderBy('created','desc').limit(20).get();
+  if(snap.empty){ wrap.innerHTML='<div class="small">No uploads</div>'; return; }
+  wrap.innerHTML = '';
+  snap.forEach(doc=>{
+    const d = doc.data();
+    const p = document.createElement('p');
+    p.innerHTML = `${d.type} — <a target="_blank" href="${d.url}">${d.fileName}</a> <span class="small">[${new Date(d.created?.toDate?.()||Date.now()).toLocaleString()}]</span>`;
+    wrap.appendChild(p);
+  });
+}
+
+/* ---------- UI toggles ---------- */
+$('showStudentsBtn').addEventListener('click', ()=>{ hide($('teachersArea')); hide($('feesArea')); hide($('uploadsArea')); show($('studentsArea'));});
+$('showTeachersBtn').addEventListener('click', ()=>{ hide($('studentsArea')); hide($('feesArea')); hide($('uploadsArea')); show($('teachersArea'));});
+$('showFeesBtn').addEventListener('click', ()=>{ hide($('studentsArea')); hide($('teachersArea')); hide($('uploadsArea')); show($('feesArea'));});
+$('showUploadsBtn').addEventListener('click', ()=>{ hide($('studentsArea')); hide($('teachersArea')); hide($('feesArea')); show($('uploadsArea'));});
+
+/* ---------- Chat (simple demo) ---------- */
+$('chatBtn').addEventListener('click', ()=>{ const box=$('chatBox'); box.style.display = box.style.display==='block' ? 'none' : 'block'; });
+$('chatSend').addEventListener('click', ()=>{ const txt=$('chatInput').value.trim(); if(!txt) return; const h=$('chatHistory'); const p=document.createElement('div'); p.textContent = 'You: '+txt; h.appendChild(p); $('chatInput').value=''; setTimeout(()=>{ const b=document.createElement('div'); b.textContent='Bot: আপনার অনুরোধ রেকর্ড করা হয়েছে (Demo).'; h.appendChild(b); h.scrollTop = h.scrollHeight; },700); });
+
+/* ---------- Initial hide admin area ---------- */
+hide($('adminArea'));
+
+/* ---------- load initial small lists when admin active ---------- */
+async function initAdminIfLogged(){ /* nothing for demo */ }
+initAdminIfLogged();
+
+</script>
+
+</body>
+</html>
